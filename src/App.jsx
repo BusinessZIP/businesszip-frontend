@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import CreateCard from './pages/CreateCard';
 import MainPage from './pages/MainPage';
 import MyNameCard from './pages/MyNameCard';
 import NotFound from './pages/NotFound';
@@ -31,6 +32,10 @@ function App() {
 				<Route
 					path='/search'
 					element={<SearchPage />}
+				/>
+				<Route
+					path='/create'
+					element={<CreateCard />}
 				/>
 				<Route
 					path='*'
