@@ -15,6 +15,9 @@ const Block1Style = styled.div`
 			transform: translateZ(0);
 		}
 	}
+	.container > div {
+		margin: 0 40px;
+	}
 
 	.block2 {
 		position: absolute;
@@ -128,7 +131,7 @@ function MainPage() {
 						>
 							회원가입
 						</span>
-						/
+						&nbsp;/&nbsp;
 						<span
 							role='button'
 							tabIndex={0}
