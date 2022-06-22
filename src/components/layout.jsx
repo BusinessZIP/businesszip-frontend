@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 const Children = styled.div`
@@ -5,21 +6,15 @@ const Children = styled.div`
 	width: 100vw;
 	height: 100vh;
 `;
+const Menu = ({ name, extraClassName }) => {
+	return (
+		<div className={extraClassName}>
+			<span>{name}</span>
+		</div>
+	);
+};
 
-const Layout = ({
-	title1,
-	title2,
-	title3,
-	children,
-	extraClassName1,
-	extraClassName2,
-	extraClassName3,
-	...rest
-}) => {
-	const className1 = extraClassName1 ? 'titleOn' : 'title';
-	const className2 = extraClassName2 ? 'titleOn' : 'title';
-	const className3 = extraClassName3 ? 'titleOn' : 'title';
-
+const Layout = ({ headers, title, children, ...rest }) => {
 	const Header = styled.div`
 		position: fixed;
 		top: 0;
@@ -46,6 +41,10 @@ const Layout = ({
 			color: #e21818;
 		}
 
+		span {
+			cursor: pointer;
+		}
+
 		${({ background }) =>
 			background &&
 			css`
@@ -57,13 +56,20 @@ const Layout = ({
 				);
 			`}
 	`;
+	const navigate = useNavigate();
+	const goPage = (path) => navigate(path);
 
 	return (
 		<>
 			<Header {...rest}>
-				<div className={className1}>{title1 && <span>{title1}</span>}</div>
-				<div className={className2}>{title2 && <span>{title2}</span>}</div>
-				<div className={className3}>{title3 && <span>{title3}</span>}</div>
+				{headers.map((header) => (
+					<Menu
+						key={header.name}
+						name={header.name}
+						goPage={goPage(header.path)}
+						extraClassName={title === header.name ? 'titleOn' : 'title'}
+					/>
+				))}
 			</Header>
 			<Children>{children}</Children>
 		</>

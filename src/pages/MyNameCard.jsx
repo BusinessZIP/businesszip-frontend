@@ -3,11 +3,24 @@ import Layout from '../components/layout';
 function MyNameCard() {
 	return (
 		<Layout
-			title1='내 명함'
-			title2='명함 검색'
-			title3='로그아웃'
-			extraClassName1
+			headers={[
+				{
+					name: '내 명함',
+					path: '/mypage',
+				},
+
+				{
+					name: '명함 검색',
+					path: '/search',
+				},
+
+				{
+					name: '로그아웃',
+					path: '/',
+				},
+			]}
 			background
+			title='내 명함'
 		/>
 	);
 }
