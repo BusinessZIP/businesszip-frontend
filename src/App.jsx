@@ -1,8 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import './styles/App.css';
 import MainPage from './pages/MainPage';
 import NotFound from './pages/NotFound';
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
+import './styles/App.css';
 
 function App() {
 	return (
@@ -11,6 +13,14 @@ function App() {
 				<Route
 					path='/'
 					element={<MainPage />}
+				/>
+				<Route
+					path='/signIn'
+					element={<SignInPage />}
+				/>
+				<Route
+					path='/signUp'
+					element={<SignUpPage />}
 				/>
 				<Route
 					path='*'
