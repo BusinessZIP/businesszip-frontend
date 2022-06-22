@@ -76,6 +76,10 @@ const Block1Style = styled.div`
 		color: #ffffff;
 		text-shadow: 6px 3px 4px rgba(0, 0, 0, 0.13);
 	}
+
+	span:hover {
+		cursor: pointer;
+	}
 `;
 
 function MainPage() {
