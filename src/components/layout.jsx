@@ -60,7 +60,24 @@ const Menu = ({ name, extraClassName, goPage }) => {
 	);
 };
 
-const Layout = ({ headers, title, children, ...rest }) => {
+const HEADER_MAPS = [
+	{
+		name: '내 명함',
+		path: '/mypage',
+	},
+
+	{
+		name: '명함 검색',
+		path: '/search',
+	},
+
+	{
+		name: '로그아웃',
+		path: '/',
+	},
+];
+
+const Layout = ({ headers = HEADER_MAPS, title, children, ...rest }) => {
 	return (
 		<>
 			<Header {...rest}>
