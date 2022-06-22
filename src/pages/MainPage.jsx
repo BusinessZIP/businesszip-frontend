@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Block1Style = styled.div`
@@ -83,6 +84,12 @@ const Block1Style = styled.div`
 `;
 
 function MainPage() {
+	const navigate = useNavigate();
+
+	const goSignUpPage = () => navigate('/signUp');
+
+	const goSignInPage = () => navigate('/signIn');
+
 	return (
 		<Block1Style>
 			<div className='container'>
@@ -113,7 +120,23 @@ function MainPage() {
 						id='4'
 						style={{ padding: '289px 0 0 66px' }}
 					>
-						<span>회원가입</span> / <span>로그인</span>
+						<span
+							role='button'
+							tabIndex={0}
+							onClick={goSignUpPage}
+							onKeyDown={goSignUpPage}
+						>
+							회원가입
+						</span>
+						/
+						<span
+							role='button'
+							tabIndex={0}
+							onClick={goSignInPage}
+							onKeyDown={goSignInPage}
+						>
+							로그인
+						</span>
 					</div>
 				</div>
 			</div>
