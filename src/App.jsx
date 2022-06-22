@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Mainpage from './Mainpage';
-import NotFound from './NotFound';
+import './styles/App.css';
+import MainPage from './pages/MainPage';
+import NotFound from './pages/NotFound';
 
 function App() {
 	return (
@@ -9,7 +10,7 @@ function App() {
 			<Routes>
 				<Route
 					path='/'
-					element={<Mainpage />}
+					element={<MainPage />}
 				/>
 				<Route
 					path='*'

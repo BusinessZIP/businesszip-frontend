@@ -1,0 +1,21 @@
+/* 메인페이지 글꼴 */
+@font-face {
+	font-family: 'hansans-bold';
+	src: url('./fonts/SpoqaHanSansNeo-Bold.ttf');
+}
+@font-face {
+	font-family: 'hansans-medium';
+	src: url('./fonts/SpoqaHanSansNeo-Medium.ttf');
+}
+@font-face {
+	font-family: 'hansans-light';
+	src: url('./fonts/SpoqaHanSansNeo-Light.ttf');
+}
+@font-face {
+	font-family: 'hansans-regular';
+	src: url('./fonts/SpoqaHanSansNeo-Regular.ttf');
+}
+@font-face {
+	font-family: 'hansans-thin';
+	src: url('./fonts/SpoqaHanSansNeo-Thin.ttf');
+}
