@@ -19,3 +19,13 @@
 	font-family: 'hansans-thin';
 	src: url('../fonts/SpoqaHanSansNeo-Thin.ttf');
 }
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+}

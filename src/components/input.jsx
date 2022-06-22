@@ -3,19 +3,21 @@ import styled from 'styled-components';
 
 const InputStyle = styled.input`
 	width: 100%;
-	border: ${({ isError }) => (isError ? '1px solid red' : 'none')};
-	border-bottom: ${({ isError }) => (isError ? '1px solid red' : '1px solid black')};
+	background: none;
+	border: ${({ isError }) => (isError ? '2px solid red' : 'none')};
+	border-bottom: ${({ isError, color }) => (isError ? '2px solid red' : `2px solid ${color}`)};
 `;
 
 const ErrorMessage = styled.p`
 	color: red;
 `;
 
-const Input = forwardRef(({ errorMessage, ...rest }, ref) => {
+const Input = forwardRef(({ errorMessage, color, ...rest }, ref) => {
 	return (
 		<>
 			<InputStyle
 				ref={ref}
+				color={color}
 				isError={errorMessage}
 				{...rest}
 			/>
