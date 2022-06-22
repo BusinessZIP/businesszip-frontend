@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 const Children = styled.div`
-	padding-top: 3rem;
 	width: 100vw;
-	height: 100vh;
+	height: calc(100vh - 3rem);
 `;
 
 const Header = styled.div`
-	position: fixed;
 	top: 0;
 	background: white;
 	width: 100%;
@@ -20,6 +18,7 @@ const Header = styled.div`
 	color: #222;
 	border-bottom: 1px solid #bbb;
 	padding: 0 1rem;
+	box-sizing: border-box;
 `;
 
 const Layout = ({ title, children }) => {

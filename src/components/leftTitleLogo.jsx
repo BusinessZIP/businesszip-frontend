@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	position: relative;
-	height: calc(100vh - 3rem);
+	height: 100%;
 	width: 30vmin;
 	svg {
 		fill: ${({ color }) => `url(#${color})`};
