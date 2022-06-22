@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 const Children = styled.div`
 	padding-top: 80px;
 	width: 100vw;
-	height: 100vh;
+	height: calc(100vh - 3rem);
 `;
 const Menu = ({ name, extraClassName }) => {
 	return (
