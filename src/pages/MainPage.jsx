@@ -11,9 +11,9 @@ const Block1Style = styled.div`
 			transform: translateZ(0);
 		}
 	}
-	/* .container > div {
+	.container > div {
 		animation: fadeInUp 1s;
-	} */
+	}
 
 	.block2 {
 		position: absolute;
@@ -29,8 +29,6 @@ const Block1Style = styled.div`
 		);
 		border-radius: 15px;
 		color: white;
-		animation-delay: 1s;
-		animation: fadeInUp 1s;
 	}
 
 	.block1 {
@@ -42,7 +40,6 @@ const Block1Style = styled.div`
 
 		background: linear-gradient(61.62deg, #a9de97 26.7%, rgba(23, 122, 75, 0.83) 71.23%);
 		border-radius: 15px;
-		animation: fadeInUp 1s;
 	}
 
 	.block4 {
@@ -73,15 +70,8 @@ const Block1Style = styled.div`
 		font-weight: 700;
 		font-size: 50px;
 		line-height: 60px;
-
 		color: #ffffff;
-
 		text-shadow: 6px 3px 4px rgba(0, 0, 0, 0.13);
-	}
-
-	.container {
-		background-color: black;
-		position: relative;
 	}
 `;
 
@@ -90,20 +80,34 @@ function MainPage() {
 		<Block1Style>
 			<div className='container'>
 				<div className='block1'>
-					<div className='fontstyle'>명함 검색</div>
-				</div>
-				<div className='block2'>
-					<div className='fontstyle'>
-						MY NAME
-						<br />
-						CARD
+					<div
+						className='fontstyle'
+						id='1'
+						style={{ padding: '100px 0 0 374px' }}
+					>
+						<span>명함 검색</span>
 					</div>
 				</div>
-				<div className='block3'>
-					<div className='fontstyle'>기만자들~</div>
+				<div className='block2'>
+					<div
+						className='fontstyle'
+						id='2'
+						style={{ padding: '67px 0 0 66px' }}
+					>
+						<span>MY NAME</span>
+						<br />
+						<span>CARD</span>
+					</div>
 				</div>
+				<div className='block3' />
 				<div className='block4'>
-					<div className='fontstyle'>로그인</div>
+					<div
+						className='fontstyle'
+						id='4'
+						style={{ padding: '289px 0 0 66px' }}
+					>
+						<span>회원가입</span> / <span>로그인</span>
+					</div>
 				</div>
 			</div>
 		</Block1Style>
