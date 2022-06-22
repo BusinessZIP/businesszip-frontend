@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import NotFound from './NotFound';
 import MainPage from './pages/MainPage';
+import NotFound from './pages/NotFound';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
+import './styles/App.css';
 
 function App() {
 	return (
