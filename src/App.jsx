@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import MainPage from './pages/MainPage';
+import MyNameCard from './pages/MyNameCard';
 import NotFound from './pages/NotFound';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
@@ -21,6 +22,10 @@ function App() {
 				<Route
 					path='/signUp'
 					element={<SignUpPage />}
+				/>
+				<Route
+					path='/mypage'
+					element={<MyNameCard />}
 				/>
 				<Route
 					path='*'
