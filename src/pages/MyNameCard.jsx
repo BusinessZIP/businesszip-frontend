@@ -6,6 +6,7 @@ function MyNameCard() {
 			title1='내 명함'
 			title2='명함 검색'
 			title3='로그아웃'
+			background
 		/>
 	);
 }
