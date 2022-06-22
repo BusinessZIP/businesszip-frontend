@@ -24,6 +24,7 @@
 		"jsx-quotes": ["error", "prefer-single"],
 		"operator-linebreak": "off",
 		"object-curly-newline": "off",
+		"react/prop-types": "off",
 		"import/order": [
 			"error",
 			{
