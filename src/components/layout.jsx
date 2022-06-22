@@ -6,7 +6,20 @@ const Children = styled.div`
 	height: 100vh;
 `;
 
-const Layout = ({ title1, title2, title3, children, ...rest }) => {
+const Layout = ({
+	title1,
+	title2,
+	title3,
+	children,
+	extraClassName1,
+	extraClassName2,
+	extraClassName3,
+	...rest
+}) => {
+	const className1 = extraClassName1 ? 'titleOn' : 'title';
+	const className2 = extraClassName2 ? 'titleOn' : 'title';
+	const className3 = extraClassName3 ? 'titleOn' : 'title';
+
 	const Header = styled.div`
 		position: fixed;
 		top: 0;
@@ -19,11 +32,20 @@ const Layout = ({ title1, title2, title3, children, ...rest }) => {
 		align-items: center;
 		font-size: 1.2rem;
 		font-weight: 600;
-		color: #828282;
 		border-bottom: 1px solid #bbb;
-		.title {
+		.title,
+		.titleOn {
 			margin: 0 30px;
 		}
+
+		.title {
+			color: #828282;
+		}
+
+		.titleOn {
+			color: #e21818;
+		}
+
 		${({ background }) =>
 			background &&
 			css`
@@ -39,9 +61,9 @@ const Layout = ({ title1, title2, title3, children, ...rest }) => {
 	return (
 		<>
 			<Header {...rest}>
-				<div className='title'>{title1 && <span>{title1}</span>}</div>
-				<div className='title'>{title2 && <span>{title2}</span>}</div>
-				<div className='title'>{title3 && <span>{title3}</span>}</div>
+				<div className={className1}>{title1 && <span>{title1}</span>}</div>
+				<div className={className2}>{title2 && <span>{title2}</span>}</div>
+				<div className={className3}>{title3 && <span>{title3}</span>}</div>
 			</Header>
 			<Children>{children}</Children>
 		</>
