@@ -22,10 +22,14 @@ const Header = styled.div`
 	padding: 0 1rem;
 `;
 
-const Layout = ({ title, children }) => {
+const Layout = ({ title1, title2, title3, children }) => {
 	return (
 		<>
-			<Header>{title && <span>{title}</span>}</Header>
+			<Header>
+				{title1 && <span>{title1}</span>}
+				{title2 && <span>{title2}</span>}
+				{title3 && <span>{title3}</span>}
+			</Header>
 			<Children>{children}</Children>
 		</>
 	);
