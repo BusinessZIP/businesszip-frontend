@@ -72,7 +72,7 @@ const Block1Style = styled.div`
 	}
 
 	.fontstyle {
-		/* font-family: 'MICEGothic Bold'; */
+		font-family: 'MICEGothic Bold';
 		font-style: normal;
 		font-weight: 700;
 		font-size: 35px;

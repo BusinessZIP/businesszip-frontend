@@ -16,8 +16,8 @@ const Container = styled.div`
 
 const FormWrapper = styled.div`
 	position: absolute;
-	width: 60%;
-	height: 80%;
+	width: 40%;
+	height: 70%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -28,7 +28,7 @@ const FormWrapper = styled.div`
 	transform: translate(-50%, -50%);
 	background: rgba(255, 255, 255, 0.5);
 	form {
-		height: 70%;
+		height: 60%;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -42,16 +42,16 @@ const FormWrapper = styled.div`
 const Title = styled.h2`
 	color: black;
 	font-family: 'MICEGothic';
-	font-size: 2rem;
+	font-size: 1.5rem;
 `;
 
 const SignUpInput = styled(Input)`
 	color: black;
 	font-family: 'MICEGothic';
-	font-size: 1.2rem;
+	font-size: 1rem;
 	::placeholder {
 		font-family: 'MICEGothic';
-		font-size: 1.2rem;
+		font-size: 1rem;
 		color: gray;
 	}
 	height: 4rem;
@@ -62,7 +62,7 @@ const SignInButton = styled.button`
 	background: #4365db;
 	border-radius: 20px;
 	font-family: 'MICEGothic';
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	color: white;
 	width: 100%;
 	border: none;
