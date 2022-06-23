@@ -1,5 +1,7 @@
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import { store } from './app/store';
 import CreateCard from './pages/CreateCard';
 // import CreateDiyPage from './pages/CreateDiyPage';
 import MainPage from './pages/MainPage';
@@ -14,50 +16,52 @@ import './styles/App.css';
 
 function App() {
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route
-					path='/'
-					element={<MainPage />}
-				/>
-				<Route
-					path='/signIn'
-					element={<SignInPage />}
-				/>
-				<Route
-					path='/signUp'
-					element={<SignUpPage />}
-				/>
-				<Route
-					path='/mypage'
-					element={<MyNameCard />}
-				/>
-				<Route
-					path='/search'
-					element={<SearchPage />}
-				/>
-				<Route
-					path='/selectCreate'
-					element={<SelectCreateFormPage />}
-				/>
-				<Route
-					path='/selectDesign'
-					element={<SelectDesignFormPage />}
-				/>
-				<Route
-					path='/create'
-					element={<CreateCard />}
-				/>
-				{/* <Route
+		<Provider store={store}>
+			<BrowserRouter>
+				<Routes>
+					<Route
+						path='/'
+						element={<MainPage />}
+					/>
+					<Route
+						path='/signIn'
+						element={<SignInPage />}
+					/>
+					<Route
+						path='/signUp'
+						element={<SignUpPage />}
+					/>
+					<Route
+						path='/mypage'
+						element={<MyNameCard />}
+					/>
+					<Route
+						path='/search'
+						element={<SearchPage />}
+					/>
+					<Route
+						path='/selectCreate'
+						element={<SelectCreateFormPage />}
+					/>
+					<Route
+						path='/selectDesign'
+						element={<SelectDesignFormPage />}
+					/>
+					<Route
+						path='/create'
+						element={<CreateCard />}
+					/>
+					{/* <Route
 					path='/createDiy'
 					element={<CreateDiyPage />}
 				/> */}
-				<Route
-					path='*'
-					element={<NotFound />}
-				/>
-			</Routes>
-		</BrowserRouter>
+					<Route
+						path='*'
+						element={<NotFound />}
+					/>
+				</Routes>
+			</BrowserRouter>
+		</Provider>
 	);
 }
 
