@@ -53,7 +53,12 @@ const Block1Style = styled.div`
 		height: 317px;
 		left: 100px;
 		top: 398px;
-		background: linear-gradient(241.57deg, #7fb6e8 9.49%, rgba(34, 74, 215, 0.84) 88.86%);
+		/* background: linear-gradient(241.57deg, #7fb6e8 9.49%, rgba(34, 74, 215, 0.84) 88.86%); */
+		background: linear-gradient(
+			241.57deg,
+			rgba(189, 218, 244, 0.76) 14.49%,
+			rgba(124, 152, 254, 0.8) 78.86%
+		);
 		border-radius: 15px;
 		animation: fadeInUp 4s;
 	}
@@ -65,11 +70,7 @@ const Block1Style = styled.div`
 		left: 659px;
 		top: 440px;
 
-		background: linear-gradient(
-			241.57deg,
-			rgba(189, 218, 244, 0.76) 14.49%,
-			rgba(124, 152, 254, 0.8) 78.86%
-		);
+		background: linear-gradient(109.97deg, #a4e5f3 15.03%, rgba(89, 94, 208, 0.56) 98.92%);
 		border-radius: 15px;
 		animation: fadeInUp 3s;
 	}
