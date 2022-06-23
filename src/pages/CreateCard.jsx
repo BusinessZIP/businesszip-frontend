@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import Input from '@/components/input';
 import Layout from '@/components/layout';
-// import businessCardApi from '../app/api/businessCardApi';
 
 const Container = styled.div`
 	position: relative;
@@ -19,26 +18,24 @@ const Container = styled.div`
 `;
 
 const BackColor = styled.div`
-	background: linear-gradient(
-		63.49deg,
-		#e67979 10.45%,
-		rgba(222, 161, 68, 0.5625) 50.68%,
-		rgba(240, 210, 164, 0.76) 93.1%
-	);
+	background-color: white;
 `;
 
 const FormWrapper = styled.div`
-	width: 60%;
+	margin-top: 40px;
+	width: 40%;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	height: 90%;
 	justify-content: space-between;
 	padding: 3rem 2rem 2rem;
 	box-sizing: border-box;
 	background: rgba(255, 255, 255, 0.5);
+	box-shadow: 0 4px 5px #a5a5a5;
+
 	form {
 		display: flex;
-		height: 80%;
+		height: 90%;
 		flex-direction: column;
 		justify-content: space-between;
 	}
@@ -49,39 +46,40 @@ const FormWrapper = styled.div`
 `;
 
 const Title = styled.h2`
-	color: white;
-	font-size: 2rem;
+	color: black;
+	font-size: 1.4rem;
 	font-family: 'MICEGothic';
 `;
 
 const BusinessCardInput = styled(Input)`
-	color: #f3f3f3;
-	font-size: 1.2rem;
+	color: '#838383';
+	font-size: 1rem;
 	font-family: 'MICEGothic';
 	::placeholder {
-		font-size: 1.2rem;
+		font-size: 1rem;
 		font-family: 'MICEGothic';
-		color: #f3f3f3;
+		color: '#838383';
 	}
-	/* height: 4rem; */
-	margin: 1.5rem 0;
+	height: 3rem;
+	margin: 0.5rem 0;
 `;
 
 const BusinessCardButton = styled.button`
 	cursor: pointer;
-	background: #e67a7a;
+	background: #2474d2;
 	border-radius: 20px;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	font-family: 'MICEGothic';
 	color: white;
 	width: 100%;
 	border: none;
-	padding: 1.6rem 0px;
+	padding: 1rem 0px;
+	margin-top: 1em;
 	&:hover,
 	&:focus {
 		color: white;
-		box-shadow: inset 15em 0 0 0 #b86161;
-		background: #b86161;
+		box-shadow: inset 15em 0 0 0 #1c5ca8;
+		background: #1c5ca8;
 		transition: all 0.5s;
 		&:before {
 			width: 100%;
@@ -90,20 +88,23 @@ const BusinessCardButton = styled.button`
 `;
 
 const HashTagStyle = styled.div`
-	max-width: 6vw;
-	min-width: 3vw;
-	padding: 0.2rem 0.6rem;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	background: #edf3eb;
-	box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.12);
-	border-radius: 20px;
-	cursor: pointer;
-	:hover {
-		opacity: 50%;
+	.tagone {
+		max-width: 10vw;
+		min-width: 3vw;
+		padding: 0.5rem 0.6rem;
+		margin: 0 3px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		background: rgba(36, 116, 210, 0.83);
+		box-shadow: 2px 3px 10px #a5a5a5;
+		border-radius: 20px;
+		cursor: pointer;
+		:hover {
+			opacity: 50%;
+		}
 	}
 `;
 
@@ -147,7 +148,6 @@ function CreateCard() {
 
 	const onSubmit = (data) => {
 		console.log(data);
-		// createBcard({ ...data, tags: hashtag, background: '' });
 	};
 
 	return (
@@ -155,25 +155,24 @@ function CreateCard() {
 			<Layout
 				title='내 명함'
 				background='none'
-				transparent
 			/>
 			<Container>
 				<FormWrapper>
 					<Title>내 명함 만들기</Title>
 					<form>
 						<BusinessCardInput
-							color='#ffffff'
+							color='#838383'
 							placeholder='이름'
 							{...register('name', {})}
 						/>
 						<BusinessCardInput
-							color='#ffffff'
+							color='#838383'
 							placeholder='직업'
 							{...register('job', {})}
 						/>
 						<BusinessCardInput
 							errorMessage={errors.phoneNumber?.message}
-							color='#ffffff'
+							color='#838383'
 							placeholder='전화번호'
 							{...register('phoneNumber', {
 								pattern: {
@@ -184,7 +183,7 @@ function CreateCard() {
 						/>
 						<BusinessCardInput
 							errorMessage={errors.email?.message}
-							color='#ffffff'
+							color='#838383'
 							placeholder='이메일'
 							{...register('email', {
 								pattern: {
@@ -194,7 +193,7 @@ function CreateCard() {
 							})}
 						/>
 						<BusinessCardInput
-							color='#ffffff'
+							color='#838383'
 							placeholder='주소'
 							{...register('address', {})}
 						/>
@@ -202,11 +201,11 @@ function CreateCard() {
 							{hashtag &&
 								hashtag.map((content) => (
 									<HashTagStyle onClick={() => deleteHashtag(content)}>
-										#{content}
+										<div className='tagone'>#{content}</div>
 									</HashTagStyle>
 								))}
 							<BusinessCardInput
-								color='#ffffff'
+								color='#838383'
 								placeholder='태그'
 								onKeyDown={addHashtag}
 								value={input}
