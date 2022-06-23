@@ -67,6 +67,17 @@ const SignInButton = styled.button`
 	width: 100%;
 	border: none;
 	padding: 1.6rem 0px;
+
+	&:hover,
+	&:focus {
+		color: white;
+		box-shadow: inset 15em 0 0 0 #2e4699;
+		background: #2e4699;
+		transition: all 0.5s;
+		&:before {
+			width: 100%;
+		}
+	}
 `;
 
 function SignUpPage() {
