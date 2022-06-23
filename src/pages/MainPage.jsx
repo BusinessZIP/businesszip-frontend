@@ -27,6 +27,7 @@ const Block1Style = styled.div`
 		top: 98px;
 		background: linear-gradient(118.87deg, #7998e6 19.02%, rgba(186, 214, 216, 0.76) 94.46%);
 		border-radius: 15px;
+		border: 5px white solid;
 		color: white;
 		animation: fadeInUp 2s;
 	}
@@ -44,6 +45,7 @@ const Block1Style = styled.div`
 			rgba(24, 88, 214, 0.61) 71.23%
 		);
 		border-radius: 15px;
+		border: 3px white solid;
 		animation: fadeInUp 1.3s;
 	}
 
@@ -60,19 +62,29 @@ const Block1Style = styled.div`
 			rgba(124, 152, 254, 0.8) 78.86%
 		);
 		border-radius: 15px;
+		border: 3px white solid;
 		animation: fadeInUp 4s;
 	}
 
 	.block3 {
 		position: absolute;
+		font-size: 90px;
+
+		color: white;
+		span {
+			opacity: 0.5;
+			padding: 50px;
+			margin-top: 70px;
+		}
 		width: 608px;
 		height: 317px;
 		left: 659px;
 		top: 440px;
-
-		background: linear-gradient(109.97deg, #a4e5f3 15.03%, rgba(89, 94, 208, 0.56) 98.92%);
 		border-radius: 15px;
+		border: 3px white solid;
+		background: linear-gradient(109.97deg, #a4e5f3 15.03%, rgba(89, 94, 208, 0.56) 98.92%);
 		animation: fadeInUp 3s;
+		text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
 	}
 
 	.fontstyle {
@@ -132,7 +144,13 @@ function MainPage() {
 						<span>CARD</span>
 					</div>
 				</div>
-				<div className='block3' />
+				<div className='block3'>
+					<span>Bussiness.zip</span>
+					<br />
+					<span>Bussiness.zip</span>
+					<br />
+					<span>Bussiness.zip</span>
+				</div>
 				<div className='block4'>
 					<div
 						className='fontstyle'
