@@ -20,6 +20,10 @@ const Wrapper = styled.div`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 3rem 2rem;
+	div {
+		cursor: pointer;
+		box-shadow: '0 5px 18px -7px #a5a5a5';
+	}
 `;
 
 const BcardWrapper = styled.div`
@@ -36,19 +40,20 @@ const BcardWrapper = styled.div`
 
 const BcardButton = styled.button`
 	cursor: pointer;
-	background: #e67a7a;
+	background: #2474d2;
 	font-family: 'MICEGothic';
 	font-size: 1.2rem;
 	border-radius: 20px;
 	color: white;
 	width: 100%;
 	border: none;
-	padding: 1.6rem 0px;
+	padding: 1.3rem 1.3rem;
+	margin: 10px 0 50px 0;
 	&:hover,
 	&:focus {
 		color: white;
-		box-shadow: inset 15em 0 0 0 #e99494;
-		background: #e99494;
+		box-shadow: inset 15em 0 0 0 #2474d2;
+		background: #2474d2;
 		transition: all 0.5s;
 		&:before {
 			width: 100%;
@@ -68,7 +73,7 @@ const CheckIcon = () => (
 			cx='59.5'
 			cy='59.5'
 			r='59.5'
-			fill='#F3A9A4'
+			fill='#2474D2'
 		/>
 		<path
 			d='M28 52.4112L53.3481 78L90 41'

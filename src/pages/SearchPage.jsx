@@ -47,6 +47,9 @@ const HashTagWrapper = styled.div`
 const CardsWrapper = styled.div`
 	display: inline-flex;
 	align-items: center;
+	.grid-container {
+		width: 400px;
+	}
 `;
 
 const SearchWrapper = styled.div`
@@ -56,6 +59,7 @@ const SearchWrapper = styled.div`
 `;
 
 const SearchButton = styled.button`
+	cursor: pointer;
 	color: white;
 	width: 5vw;
 	height: 6vh;

@@ -8,7 +8,7 @@ const Container = styled.div`
 	font-family: 'MICEGothic';
 	.grid-container {
 		display: grid;
-		width: 400px;
+		width: 346px;
 		grid-template-columns: auto auto;
 		padding: 10px 27px;
 		justify-content: center;
@@ -74,13 +74,13 @@ const Bcard = ({
 						className='number'
 						id='grid'
 					>
-						N {phone}
+						{phone}
 					</div>
 					<div
 						className='address'
 						id='grid'
 					>
-						A {address}
+						&nbsp;&nbsp;{address}
 					</div>
 					<div
 						className='tag'
@@ -92,7 +92,7 @@ const Bcard = ({
 						className='mail'
 						id='grid'
 					>
-						E {email}
+						&nbsp;&nbsp;{email}
 					</div>
 				</div>
 			</div>

@@ -25,6 +25,12 @@ const Wrapper = styled.div`
 	.grid-container {
 		width: 346px;
 	}
+	.number,
+	.address,
+	.tag,
+	.mail {
+		padding: 5px 5px;
+	}
 `;
 
 const AddButton = styled.button`
