@@ -38,13 +38,16 @@ const FormWrapper = styled.div`
 
 const Title = styled.h2`
 	color: white;
+	font-family: 'MICEGothic';
 	font-size: 2rem;
 `;
 
 const SignInInput = styled(Input)`
 	color: #e1e1e1;
+	font-family: 'MICEGothic';
 	font-size: 1.2rem;
 	::placeholder {
+		font-family: 'MICEGothic';
 		font-size: 1.2rem;
 		color: #e1e1e1;
 	}
@@ -52,16 +55,42 @@ const SignInInput = styled(Input)`
 `;
 
 const SignInButton = styled.button`
+	cursor: pointer;
 	background: #4365db;
+	font-family: 'MICEGothic';
+	font-size: 1.2rem;
 	border-radius: 20px;
 	color: white;
 	width: 100%;
 	border: none;
 	padding: 1.6rem 0px;
+	&:hover,
+	&:focus {
+		color: white;
+		box-shadow: inset 15em 0 0 0 #2e4699;
+		background: #2e4699;
+		transition: all 0.5s;
+		&:before {
+			width: 100%;
+		}
+	}
 `;
 
 const SignUpButton = styled(SignInButton)`
+	cursor: pointer;
+	font-family: 'MICEGothic';
+	font-size: 1.2rem;
 	background: #6390e1;
+	&:hover,
+	&:focus {
+		color: white;
+		box-shadow: inset 15em 0 0 0 #45649d;
+		background: #45649d;
+		transition: all 0.5s;
+		&:before {
+			width: 100%;
+		}
+	}
 `;
 
 function SignInPage() {

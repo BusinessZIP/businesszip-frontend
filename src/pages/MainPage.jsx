@@ -72,7 +72,7 @@ const Block1Style = styled.div`
 	}
 
 	.fontstyle {
-		font-family: 'hansans-medium';
+		font-family: 'MICEGothic Bold';
 		font-style: normal;
 		font-weight: 700;
 		font-size: 50px;
@@ -93,6 +93,10 @@ function MainPage() {
 
 	const goSignInPage = () => navigate('/signIn');
 
+	const goSearchPage = () => navigate('/search');
+
+	const goMyPage = () => navigate('/mypage');
+
 	return (
 		<Block1Style>
 			<div className='container'>
@@ -101,6 +105,10 @@ function MainPage() {
 						className='fontstyle'
 						id='1'
 						style={{ padding: '100px 0 0 374px' }}
+						role='button'
+						tabIndex={0}
+						onClick={goSearchPage}
+						onKeyDown={goSearchPage}
 					>
 						<span>명함 검색</span>
 					</div>
@@ -110,6 +118,10 @@ function MainPage() {
 						className='fontstyle'
 						id='2'
 						style={{ padding: '67px 0 0 66px' }}
+						role='button'
+						tabIndex={0}
+						onClick={goMyPage}
+						onKeyDown={goMyPage}
 					>
 						<span>MY NAME</span>
 						<br />

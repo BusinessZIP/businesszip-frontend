@@ -1,8 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import CreateCard from './pages/CreateCard';
 import MainPage from './pages/MainPage';
 import MyNameCard from './pages/MyNameCard';
 import NotFound from './pages/NotFound';
+import SearchPage from './pages/SearchPage';
+import SelectCreateFormPage from './pages/SelectCreateFormPage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import './styles/App.css';
@@ -26,6 +29,18 @@ function App() {
 				<Route
 					path='/mypage'
 					element={<MyNameCard />}
+				/>
+				<Route
+					path='/search'
+					element={<SearchPage />}
+				/>
+				<Route
+					path='/selectCreate'
+					element={<SelectCreateFormPage />}
+				/>
+				<Route
+					path='/create'
+					element={<CreateCard />}
 				/>
 				<Route
 					path='*'
