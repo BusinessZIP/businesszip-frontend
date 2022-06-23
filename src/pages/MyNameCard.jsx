@@ -21,6 +21,9 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	padding: 2.5rem;
 	gap: 3rem;
+	.grid-container {
+		width: 346px;
+	}
 `;
 
 const AddButton = styled.button`
@@ -87,7 +90,12 @@ function MyNameCard() {
 					<LeftTitleLogo />
 				</div>
 				<Wrapper>
-					<Bcard />
+					<div
+						className='mycard'
+						style={{ position: 'relative', width: '400px' }}
+					>
+						<Bcard />
+					</div>
 					<AddButton onClick={handleClickBasic}>+</AddButton>
 				</Wrapper>
 			</Container>
