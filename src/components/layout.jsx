@@ -1,5 +1,8 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { api, isLoginSelector } from '@/app/api/mainApi';
 
 const Header = styled.div`
 	top: 0;
@@ -46,10 +49,13 @@ const Children = styled.div`
 	height: calc(100vh - 80px);
 `;
 
-const Menu = ({ name, extraClassName, goPage }) => {
+const Menu = ({ name, extraClassName = 'title', goPage, ...rest }) => {
 	return (
 		<Link to={goPage}>
-			<div className={extraClassName}>
+			<div
+				className={extraClassName}
+				{...rest}
+			>
 				<span>{name}</span>
 			</div>
 		</Link>
@@ -66,14 +72,11 @@ const HEADER_MAPS = [
 		name: '명함 검색',
 		path: '/search',
 	},
-
-	{
-		name: '로그아웃',
-		path: '/',
-	},
 ];
 
 const Layout = ({ headers = HEADER_MAPS, headerTitle, title, children, ...rest }) => {
+	const currentUser = useSelector(isLoginSelector);
+	const [logout] = api.useLogoutMutation();
 	return (
 		<>
 			<Header {...rest}>
@@ -86,6 +89,19 @@ const Layout = ({ headers = HEADER_MAPS, headerTitle, title, children, ...rest }
 						extraClassName={title === header.name ? 'titleOn' : 'title'}
 					/>
 				))}
+				{!currentUser && (
+					<Menu
+						name='로그인'
+						goPage='/signIn'
+					/>
+				)}
+				{currentUser && (
+					<Menu
+						name='로그아웃'
+						goPage='/'
+						onClick={() => logout()}
+					/>
+				)}
 			</Header>
 			{children && <Children>{children}</Children>}
 		</>
