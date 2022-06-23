@@ -17,9 +17,10 @@ const Container = styled.div`
 		align-items: center;
 	}
 	.cardList {
-		background-color: black;
 		display: flex;
-		justify-content: center;
+		flex-direction: row nowrap;
+		flex-wrap: wrap;
+		justify-content: space-around;
 		align-items: center;
 	}
 `;
@@ -29,7 +30,6 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 2.5rem;
-	background-color: gray;
 	gap: 3rem;
 `;
 
@@ -40,10 +40,8 @@ const HashTagWrapper = styled.div`
 `;
 
 const CardsWrapper = styled.div`
-	display: flex;
+	display: inline-flex;
 	align-items: center;
-	/* min-width: 1000px; */
-	background-color: green;
 `;
 
 const SearchWrapper = styled.div`
@@ -87,11 +85,10 @@ const HashTagStyle = styled.div`
 `;
 
 const CardStyle = styled.div`
-	background-color: pink;
 	img {
 		display: flex;
 		width: 400px;
-		padding: 0 50px;
+		padding: 20px 50px;
 	}
 `;
 
