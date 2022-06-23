@@ -1,11 +1,7 @@
 /* 메인페이지 글꼴 */
 @font-face {
-	font-family: 'hansans-bold';
-	src: url('../fonts/SpoqaHanSansNeo-Bold.ttf');
-}
-@font-face {
-	font-family: 'hansans-medium';
-	src: url('../fonts/SpoqaHanSansNeo-Medium.ttf');
+	font-family: 'hansans-thin';
+	src: url('../fonts/SpoqaHanSansNeo-Thin.ttf');
 }
 @font-face {
 	font-family: 'hansans-light';
@@ -16,8 +12,27 @@
 	src: url('../fonts/SpoqaHanSansNeo-Regular.ttf');
 }
 @font-face {
-	font-family: 'hansans-thin';
-	src: url('../fonts/SpoqaHanSansNeo-Thin.ttf');
+	font-family: 'hansans-medium';
+	src: url('../fonts/SpoqaHanSansNeo-Medium.ttf');
+}
+@font-face {
+	font-family: 'hansans-bold';
+	src: url('../fonts/SpoqaHanSansNeo-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'MICEGothic';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic.woff2')
+		format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'MICEGothic Bold';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2')
+		format('woff2');
+	font-weight: 700;
+	font-style: normal;
 }
 
 body {

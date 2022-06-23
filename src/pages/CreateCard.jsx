@@ -11,7 +11,7 @@ const Container = styled.div`
 	flex-direction: column;
 	justify-self: center;
 	align-items: center;
-	/* padding: 50px 0; */
+	padding: 50px 0;
 `;
 
 const BackColor = styled.div`

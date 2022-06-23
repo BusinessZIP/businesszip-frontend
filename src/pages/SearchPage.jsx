@@ -34,6 +34,7 @@ const SearchButton = styled.button`
 	color: white;
 	width: 5vw;
 	height: 6vh;
+	font-family: 'MICEGothic Bold';
 	font-size: 1.6rem;
 	border: none;
 	background: rgba(23, 122, 75, 0.83);
@@ -45,6 +46,7 @@ const Input = styled.input`
 	border: none;
 	width: 30vw;
 	height: 6vh;
+	font-family: 'MICEGothic';
 	font-size: 1.6rem;
 	padding: 1rem 2rem;
 	box-sizing: border-box;

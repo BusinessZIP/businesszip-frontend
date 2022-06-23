@@ -9,6 +9,7 @@ const Container = styled.div`
 	}
 	h2 {
 		padding: 2rem;
+		font-family: 'MICEGothic';
 		font-weight: 400;
 		font-size: 4vmin;
 		position: absolute;

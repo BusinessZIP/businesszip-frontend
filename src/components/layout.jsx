@@ -10,8 +10,11 @@ const Header = styled.div`
 	height: 80px;
 	align-items: center;
 	font-size: 1.2rem;
+	font-family: 'MICEGothic';
 	font-weight: 600;
 	border-bottom: 1px solid #bbb;
+	box-shadow: 0 5px 18px -7px grey;
+	border-radius: 0 0 30px 0;
 	* {
 		text-decoration: none;
 	}
