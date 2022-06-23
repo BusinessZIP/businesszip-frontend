@@ -11,7 +11,7 @@ const Container = styled.div`
 	flex-direction: column;
 	justify-self: center;
 	align-items: center;
-	/* padding: 50px 0; */
+	padding: 10px 0 50px 0;
 `;
 
 const BackColor = styled.div`
@@ -46,13 +46,16 @@ const FormWrapper = styled.div`
 const Title = styled.h2`
 	color: white;
 	font-size: 2rem;
+	font-family: 'MICEGothic';
 `;
 
 const BusinessCardInput = styled(Input)`
 	color: #f3f3f3;
 	font-size: 1.2rem;
+	font-family: 'MICEGothic';
 	::placeholder {
 		font-size: 1.2rem;
+		font-family: 'MICEGothic';
 		color: #f3f3f3;
 	}
 	height: 4rem;
@@ -60,12 +63,25 @@ const BusinessCardInput = styled(Input)`
 `;
 
 const BusinessCardButton = styled.button`
+	cursor: pointer;
 	background: #e67a7a;
 	border-radius: 20px;
+	font-size: 1.2rem;
+	font-family: 'MICEGothic';
 	color: white;
 	width: 100%;
 	border: none;
 	padding: 1.6rem 0px;
+	&:hover,
+	&:focus {
+		color: white;
+		box-shadow: inset 15em 0 0 0 #b86161;
+		background: #b86161;
+		transition: all 0.5s;
+		&:before {
+			width: 100%;
+		}
+	}
 `;
 
 function CreateCard() {
