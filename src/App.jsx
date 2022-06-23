@@ -1,10 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import CreateCard from './pages/CreateCard';
+import CreateDiyPage from './pages/CreateDiyPage';
 import MainPage from './pages/MainPage';
 import MyNameCard from './pages/MyNameCard';
 import NotFound from './pages/NotFound';
 import SearchPage from './pages/SearchPage';
+import SelectCreateFormPage from './pages/SelectCreateFormPage';
+import SelectDesignFormPage from './pages/SelectDesignFormPage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import './styles/App.css';
@@ -34,8 +37,20 @@ function App() {
 					element={<SearchPage />}
 				/>
 				<Route
+					path='/selectCreate'
+					element={<SelectCreateFormPage />}
+				/>
+				<Route
+					path='/selectDesign'
+					element={<SelectDesignFormPage />}
+				/>
+				<Route
 					path='/create'
 					element={<CreateCard />}
+				/>
+				<Route
+					path='/createDiy'
+					element={<CreateDiyPage />}
 				/>
 				<Route
 					path='*'

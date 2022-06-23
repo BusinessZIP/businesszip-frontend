@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Bcard from '../components/bcard';
 import Layout from '../components/layout';
 import LeftTitleLogo from '../components/leftTitleLogo';
 
@@ -12,9 +14,27 @@ const Container = styled.div`
 	align-items: center;
 `;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	padding: 2.5rem;
+	gap: 3rem;
+`;
+
+const AddButton = styled.button`
+	border: none;
+	width: 400px;
+	height: 230px;
+	background: whitesmoke;
+	font-size: 4rem;
+	cursor: pointer;
+	:hover {
+		opacity: 50%;
+	}
+`;
 
 function MyNameCard() {
+	const navigate = useNavigate();
 	return (
 		<Layout title='내 명함'>
 			<Container>
@@ -24,7 +44,10 @@ function MyNameCard() {
 						color='orange'
 					/>
 				</div>
-				<Wrapper />
+				<Wrapper>
+					<Bcard />
+					<AddButton onClick={() => navigate('/selectCreate')}>+</AddButton>
+				</Wrapper>
 			</Container>
 		</Layout>
 	);
