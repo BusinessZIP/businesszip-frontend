@@ -180,7 +180,7 @@ const CardStyle = styled.div`
 	figure.snip:hover img,
 	figure.snip.hover img {
 		zoom: 1;
-		filter: alpha(opacity=50);
+		filter: blur(3px);
 		-webkit-opacity: 0.5;
 		opacity: 0.5;
 	}
