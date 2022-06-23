@@ -98,7 +98,6 @@ const CardStyle = styled.div`
 		width: 100%;
 		color: #ffffff;
 		text-align: left;
-		font-size: 16px;
 		background-color: #000000;
 	}
 	figure.snip * {
@@ -137,15 +136,24 @@ const CardStyle = styled.div`
 		margin: 5px 0;
 		padding: 0;
 	}
-	figure.snip p {
+	figure.snip p.name {
 		line-height: 1.1em;
 		font-weight: 700;
-		font-size: 1.4em;
+		font-size: 1.6em;
 		text-transform: uppercase;
 		opacity: 0;
 	}
-	figure.snip p {
+	figure.snip p.job {
+		line-height: 1.4em;
+		font-weight: 700;
+		font-size: 1em;
+		text-transform: uppercase;
+		opacity: 0;
+	}
+	figure.snip p.tagsString {
+		margin-top: 60px;
 		font-size: 0.8em;
+		color: skyblue;
 		font-weight: 300;
 		letter-spacing: 1px;
 		opacity: 0;
@@ -223,7 +231,7 @@ const Card = () => {
 					>
 						Kakao
 					</p>
-					<p>#develop</p>
+					<p className='tagsString'>#develop #예시</p>
 				</figcaption>
 			</figure>
 		</CardStyle>
