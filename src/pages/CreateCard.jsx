@@ -11,7 +11,7 @@ const Container = styled.div`
 	flex-direction: column;
 	justify-self: center;
 	align-items: center;
-	padding: 50px 0;
+	/* padding: 50px 0; */
 `;
 
 const BackColor = styled.div`
@@ -24,7 +24,8 @@ const BackColor = styled.div`
 `;
 
 const FormWrapper = styled.div`
-	width: 60%;
+	width: 80%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -32,7 +33,6 @@ const FormWrapper = styled.div`
 	box-sizing: border-box;
 	background: rgba(255, 255, 255, 0.5);
 	form {
-		height: 40%;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -48,18 +48,18 @@ const Title = styled.h2`
 	font-size: 2rem;
 `;
 
-const SignInInput = styled(Input)`
-	color: #e1e1e1;
+const BusinessCardInput = styled(Input)`
+	color: #f3f3f3;
 	font-size: 1.2rem;
 	::placeholder {
 		font-size: 1.2rem;
-		color: #e1e1e1;
+		color: #f3f3f3;
 	}
 	height: 4rem;
 	margin: 1.5rem 0;
 `;
 
-const SignInButton = styled.button`
+const BusinessCardButton = styled.button`
 	background: #e67a7a;
 	border-radius: 20px;
 	color: white;
@@ -69,7 +69,11 @@ const SignInButton = styled.button`
 `;
 
 function CreateCard() {
-	const { handleSubmit } = useForm({
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
 		mode: 'onBlur',
 		reValidateMode: 'onChange',
 		defaultValues: {},
@@ -86,28 +90,44 @@ function CreateCard() {
 				<FormWrapper>
 					<Title>내 명함 만들기</Title>
 					<form>
-						<SignInInput
+						<BusinessCardInput
 							color='#ffffff'
 							placeholder='이름'
 						/>
-						<SignInInput
+						<BusinessCardInput
 							color='#ffffff'
 							placeholder='직업'
 						/>
-						<SignInInput
+						<BusinessCardInput
+							errorMessage={errors.phoneNumber?.message}
 							color='#ffffff'
 							placeholder='전화번호'
+							{...register('phoneNumber', {
+								pattern: {
+									value: /^([\d]{3}-[\d]{4}-[\d]{4}|[\d]{11})$/,
+									message: '올바른 전화번호가 아닙니다.',
+								},
+							})}
 						/>
-						<SignInInput
+						<BusinessCardInput
+							errorMessage={errors.email?.message}
 							color='#ffffff'
 							placeholder='이메일'
+							{...register('email', {
+								pattern: {
+									value: /^[A-Za-z0-9._%+-]+@[\S+.]+$/,
+									message: '이메일형식만 사용할 수 있습니다.',
+								},
+							})}
 						/>
-						<SignInInput
+						<BusinessCardInput
 							color='#ffffff'
 							placeholder='주소'
 						/>
 					</form>
-					<SignInButton onClick={handleSubmit(onSubmit)}>등록하기</SignInButton>
+					<BusinessCardButton onClick={handleSubmit(onSubmit)}>
+						등록하기
+					</BusinessCardButton>
 				</FormWrapper>
 			</Container>
 		</BackColor>
