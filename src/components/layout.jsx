@@ -89,7 +89,7 @@ const Layout = ({ headers = HEADER_MAPS, title, children, ...rest }) => {
 					/>
 				))}
 			</Header>
-			<Children>{children}</Children>
+			{children && <Children>{children}</Children>}
 		</>
 	);
 };

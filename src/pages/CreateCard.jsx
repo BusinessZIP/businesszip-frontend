@@ -11,6 +11,7 @@ const Container = styled.div`
 	flex-direction: column;
 	justify-self: center;
 	align-items: center;
+	padding: 50px 0;
 `;
 
 const BackColor = styled.div`
@@ -23,16 +24,12 @@ const BackColor = styled.div`
 `;
 
 const FormWrapper = styled.div`
-	position: absolute;
 	width: 60%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 5rem 3rem 3rem;
 	box-sizing: border-box;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
 	background: rgba(255, 255, 255, 0.5);
 	form {
 		height: 40%;
@@ -84,36 +81,35 @@ function CreateCard() {
 
 	return (
 		<BackColor>
-			<Layout title='내 명함'>
-				<Container>
-					<FormWrapper>
-						<Title>내 명함 만들기</Title>
-						<form>
-							<SignInInput
-								color='#ffffff'
-								placeholder='이름'
-							/>
-							<SignInInput
-								color='#ffffff'
-								placeholder='직업'
-							/>
-							<SignInInput
-								color='#ffffff'
-								placeholder='전화번호'
-							/>
-							<SignInInput
-								color='#ffffff'
-								placeholder='이메일'
-							/>
-							<SignInInput
-								color='#ffffff'
-								placeholder='주소'
-							/>
-						</form>
-						<SignInButton onClick={handleSubmit(onSubmit)}>등록하기</SignInButton>
-					</FormWrapper>
-				</Container>
-			</Layout>
+			<Layout title='내 명함' />
+			<Container>
+				<FormWrapper>
+					<Title>내 명함 만들기</Title>
+					<form>
+						<SignInInput
+							color='#ffffff'
+							placeholder='이름'
+						/>
+						<SignInInput
+							color='#ffffff'
+							placeholder='직업'
+						/>
+						<SignInInput
+							color='#ffffff'
+							placeholder='전화번호'
+						/>
+						<SignInInput
+							color='#ffffff'
+							placeholder='이메일'
+						/>
+						<SignInInput
+							color='#ffffff'
+							placeholder='주소'
+						/>
+					</form>
+					<SignInButton onClick={handleSubmit(onSubmit)}>등록하기</SignInButton>
+				</FormWrapper>
+			</Container>
 		</BackColor>
 	);
 }
