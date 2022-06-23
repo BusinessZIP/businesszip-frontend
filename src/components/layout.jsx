@@ -12,6 +12,7 @@ const Header = styled.div`
 	width: 100%;
 	height: 80px;
 	align-items: center;
+	font-family: 'MICEGothic';
 	font-size: 1.2rem;
 	font-weight: 600;
 	box-shadow: ${({ transparent }) => (transparent ? 'none' : '0 5px 18px -7px #a5a5a5')};
@@ -37,10 +38,17 @@ const Header = styled.div`
 	}
 
 	background: ${({ background }) => background};
-	h2 {
+	.white {
 		position: absolute;
+		font-family: 'MICEGothic Bold';
 		left: 2rem;
 		color: white;
+	}
+	.blue {
+		position: absolute;
+		left: 2rem;
+		font-family: 'MICEGothic Bold';
+		color: #2474d2;
 	}
 `;
 
@@ -69,18 +77,26 @@ const HEADER_MAPS = [
 	},
 
 	{
-		name: '명함 검색',
+		name: '명함 모음집',
 		path: '/search',
 	},
 ];
 
-const Layout = ({ headers = HEADER_MAPS, headerTitle, title, children, ...rest }) => {
+const Layout = ({
+	headers = HEADER_MAPS,
+	headerTitleW,
+	headerTitleB,
+	title,
+	children,
+	...rest
+}) => {
 	const currentUser = useSelector(isLoginSelector);
 	const [logout] = api.useLogoutMutation();
 	return (
 		<>
 			<Header {...rest}>
-				{headerTitle && <h2>{headerTitle}</h2>}
+				{headerTitleW && <span className='white'>{headerTitleW}</span>}
+				{headerTitleB && <span className='blue'>{headerTitleB}</span>}
 				{headers.map((header) => (
 					<Menu
 						key={header.name}

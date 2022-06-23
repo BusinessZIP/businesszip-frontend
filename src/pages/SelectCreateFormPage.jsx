@@ -17,10 +17,9 @@ const Container = styled.div`
 const BackColor = styled.div`
 	height: 100vh;
 	background: linear-gradient(
-		126.43deg,
-		rgba(243, 169, 164, 0.42) 23.5%,
-		rgba(109, 51, 154, 0.47) 63.87%,
-		rgba(6, 3, 170, 0.4) 88.31%
+		69.01deg,
+		rgba(34, 74, 215, 0.18) 17.08%,
+		rgba(127, 182, 232, 0.85) 54.36%
 	);
 `;
 
@@ -37,12 +36,13 @@ const Button = styled.button`
 	background: rgba(255, 255, 255, 0.73);
 	border-radius: 30px;
 	pre {
-		font-size: 4rem;
+		font-family: 'MICEGothic';
+		font-size: 1.2rem;
 	}
 	p {
-		font-family: 'Inter';
+		font-family: 'MICEGothic';
 		font-style: italic;
-		font-size: 4rem;
+		font-size: 1.2rem;
 		font-weight: 100;
 	}
 `;
