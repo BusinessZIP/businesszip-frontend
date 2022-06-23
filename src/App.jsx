@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import CreateCard from './pages/CreateCard';
-import CreateDiyPage from './pages/CreateDiyPage';
+// import CreateDiyPage from './pages/CreateDiyPage';
 import MainPage from './pages/MainPage';
 import MyNameCard from './pages/MyNameCard';
 import NotFound from './pages/NotFound';
@@ -48,10 +48,10 @@ function App() {
 					path='/create'
 					element={<CreateCard />}
 				/>
-				<Route
+				{/* <Route
 					path='/createDiy'
 					element={<CreateDiyPage />}
-				/>
+				/> */}
 				<Route
 					path='*'
 					element={<NotFound />}

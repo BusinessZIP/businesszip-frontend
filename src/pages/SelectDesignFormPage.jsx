@@ -88,8 +88,9 @@ const SelectDesignFormPage = () => {
 	return (
 		<Layout
 			title='디자인 시안 선택'
-			headerTitle='디자인 시안을 선택해 주세요'
-			background='linear-gradient(89.33deg, rgba(230, 121, 121, 0.83) 19.28%, rgba(222, 161, 68, 0.466875) 53.14%, rgba(240, 210, 164, 0.6308) 96.91%);'
+			headerTitleW='디자인 시안을 선택해 주세요'
+			background='linear-gradient(90deg, #2474D2 15.8%, #D4E3F4 96.91%);'
+			headers={[]}
 		>
 			<Container>
 				<Wrapper>

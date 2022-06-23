@@ -36,13 +36,13 @@ const AddButton = styled.button`
 function MyNameCard() {
 	const navigate = useNavigate();
 	return (
-		<Layout title='내 명함'>
+		<Layout
+			title='내 명함'
+			headerTitleB='My Name Card'
+		>
 			<Container>
 				<div style={{ position: 'absolute', left: '0px', height: '100%' }}>
-					<LeftTitleLogo
-						title='내 명함'
-						color='orange'
-					/>
+					<LeftTitleLogo />
 				</div>
 				<Wrapper>
 					<Bcard />
