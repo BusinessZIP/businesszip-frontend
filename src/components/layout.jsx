@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Header = styled.div`
 	top: 0;
@@ -10,7 +10,6 @@ const Header = styled.div`
 	height: 80px;
 	align-items: center;
 	font-size: 1.2rem;
-	font-family: 'MICEGothic';
 	font-weight: 600;
 	box-shadow: 0 5px 18px -7px #a5a5a5;
 	border-radius: 0 0 30px 0;
@@ -34,16 +33,7 @@ const Header = styled.div`
 		cursor: pointer;
 	}
 
-	${({ background }) =>
-		background &&
-		css`
-			background: linear-gradient(
-				89.33deg,
-				rgba(230, 121, 121, 0.83) 19.28%,
-				rgba(222, 161, 68, 0.466875) 53.14%,
-				rgba(240, 210, 164, 0.6308) 96.91%
-			);
-		`}
+	${({ background }) => background}
 `;
 
 const Children = styled.div`
