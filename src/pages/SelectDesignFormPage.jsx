@@ -52,8 +52,8 @@ const BcardButton = styled.button`
 	&:hover,
 	&:focus {
 		color: white;
-		box-shadow: inset 15em 0 0 0 #2474d2;
-		background: #2474d2;
+		box-shadow: inset 15em 0 0 0 #195193;
+		background: #195193;
 		transition: all 0.5s;
 		&:before {
 			width: 100%;
