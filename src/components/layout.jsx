@@ -11,7 +11,8 @@ const Header = styled.div`
 	align-items: center;
 	font-size: 1.2rem;
 	font-weight: 600;
-	border-bottom: ${({ background }) => (background ? 'none' : '1px solid #bbb')};
+	box-shadow: ${({ transparent }) => (transparent ? 'none' : '0 5px 18px -7px #a5a5a5')};
+	border-radius: 0 0 30px 0;
 	* {
 		text-decoration: none;
 	}

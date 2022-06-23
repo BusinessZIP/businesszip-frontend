@@ -88,6 +88,7 @@ function CreateCard() {
 			<Layout
 				title='내 명함'
 				background='none'
+				transparent
 			/>
 			<Container>
 				<FormWrapper>

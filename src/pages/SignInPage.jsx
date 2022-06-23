@@ -64,6 +64,16 @@ const SignInButton = styled.button`
 	width: 100%;
 	border: none;
 	padding: 1.6rem 0px;
+	&:hover,
+	&:focus {
+		color: white;
+		box-shadow: inset 15em 0 0 0 #2e4699;
+		background: #2e4699;
+		transition: all 0.5s;
+		&:before {
+			width: 100%;
+		}
+	}
 `;
 
 const SignUpButton = styled(SignInButton)`
@@ -71,6 +81,16 @@ const SignUpButton = styled(SignInButton)`
 	font-family: 'MICEGothic';
 	font-size: 1.2rem;
 	background: #6390e1;
+	&:hover,
+	&:focus {
+		color: white;
+		box-shadow: inset 15em 0 0 0 #45649d;
+		background: #45649d;
+		transition: all 0.5s;
+		&:before {
+			width: 100%;
+		}
+	}
 `;
 
 function SignInPage() {
