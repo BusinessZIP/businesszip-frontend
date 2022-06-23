@@ -12,12 +12,22 @@ const businessCardApi = baseApi
 					method: 'POST',
 				}),
 			}),
-			getBusinessCardInfo: builder.query({
+			getBusinessCardInfo: builder.mutation({
 				query: (args) => ({
 					url: '/api/v1/bcard/info',
 					method: 'POST',
 					body: {
 						id: args.id,
+					},
+				}),
+			}),
+			setMemo: builder.mutation({
+				query: (args) => ({
+					url: '/api/v1/memo',
+					method: 'POST',
+					body: {
+						id: args.id,
+						content: args.content ?? '',
 					},
 				}),
 			}),

@@ -6,6 +6,7 @@ import searchApi from '../app/api/searchApi';
 import Bcard from '../components/bcard';
 import Layout from '../components/layout';
 import LeftTitleLogo from '../components/leftTitleLogo';
+import Modal from '../components/modal';
 
 const Container = styled.div`
 	position: relative;
@@ -87,6 +88,48 @@ const HashTagStyle = styled.div`
 	font-family: 'MICEGothic';
 	box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.12);
 	border-radius: 20px;
+`;
+
+const ModalWrapper = styled.div`
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	.business {
+		box-shadow: 0px 0px 3px #00000029;
+		background: white;
+	}
+`;
+
+const MemoInput = styled.textarea`
+	width: 100%;
+	height: 230px;
+	padding: 1rem;
+	box-sizing: border-box;
+	border: none;
+	border-bottom: 1px solid black;
+`;
+
+const SubmitButton = styled.button`
+	cursor: pointer;
+	background: #e67a7a;
+	font-family: 'MICEGothic';
+	font-size: 1.2rem;
+	border-radius: 20px;
+	color: white;
+	width: 100%;
+	border: none;
+	padding: 1.6rem 0px;
+	&:hover,
+	&:focus {
+		color: white;
+		box-shadow: inset 15em 0 0 0 #e99494;
+		background: #e99494;
+		transition: all 0.5s;
+		&:before {
+			width: 100%;
+		}
+	}
 `;
 
 const CardStyle = styled.div`
@@ -208,9 +251,9 @@ const HashTag = () => {
 	return <HashTagStyle>#develop</HashTagStyle>;
 };
 
-const Card = ({ ...v }) => {
+const Card = ({ onClick, ...v }) => {
 	return (
-		<CardStyle>
+		<CardStyle onClick={onClick}>
 			<figure className='snip'>
 				<Bcard {...v} />
 				<figcaption>
@@ -235,9 +278,12 @@ const Card = ({ ...v }) => {
 
 const SearchPage = () => {
 	const [input, setInput] = useState('');
+	const [modalOnOff, setModalOnOff] = useState(-1);
+	const [memo, setMemo] = useState('');
 	const [data, setData] = useState([]);
+	const [updateMemo] = businessCardApi.useSetMemoMutation();
 	const { data: allData } = businessCardApi.useGetBusinessCardsQuery();
-	console.log(allData);
+	const [getInfo] = businessCardApi.useGetBusinessCardInfoMutation();
 	const [getByInfo] = searchApi.useGetBcardByInfoMutation();
 	const [getByTag] = searchApi.useGetBcardByTagMutation();
 
@@ -250,46 +296,92 @@ const SearchPage = () => {
 		setData(users);
 	};
 
+	const getDetailInfo = async (id) => {
+		const {
+			data: { user },
+		} = await getInfo({ id });
+		setModalOnOff(user);
+	};
+
+	const submitMemo = async () => {
+		const {
+			data: { code },
+		} = await updateMemo({ id: modalOnOff.id, content: memo });
+		console.log(code);
+	};
 	useEffect(() => {
-		console.log(data);
-	}, [data]);
+		if (modalOnOff === -1) return;
+		setMemo(modalOnOff?.content ?? '');
+	}, [modalOnOff]);
 	return (
-		<Layout
-			title='명함 모음집'
-			headerTitleB='Business.zip'
-		>
-			<Container>
-				<div style={{ position: 'absolute', left: '0px', height: '100%' }}>
-					<LeftTitleLogo
-						title='명함 검색'
-						color='green'
-					/>
-				</div>
-				<Wrapper>
-					<div className='center'>
-						<SearchWrapper>
-							<Input
-								placeholder='검색해보세요'
-								value={input}
-								onChange={(e) => setInput(e.target.value)}
-							/>
-							<SearchButton onClick={onSearch}>검색</SearchButton>
-						</SearchWrapper>
-						<HashTagWrapper>
-							{Array.from({ length: 6 }).map(() => (
-								<HashTag />
-							))}
-						</HashTagWrapper>
+		<>
+			<Layout
+				title='명함 모음집'
+				headerTitleB='Business.zip'
+			>
+				<Container>
+					<div style={{ position: 'absolute', left: '0px', height: '100%' }}>
+						<LeftTitleLogo
+							title='명함 검색'
+							color='green'
+						/>
 					</div>
-					<CardsWrapper>
-						<div className='cardList'>
-							{data.length === 0 && allData?.users.map((v) => <Card {...v} />)}
-							{data && data.map((v) => <Card {...v} />)}
+					<Wrapper>
+						<div className='center'>
+							<SearchWrapper>
+								<Input
+									placeholder='검색해보세요'
+									value={input}
+									onChange={(e) => setInput(e.target.value)}
+								/>
+								<SearchButton onClick={onSearch}>검색</SearchButton>
+							</SearchWrapper>
+							<HashTagWrapper>
+								{Array.from({ length: 6 }).map(() => (
+									<HashTag />
+								))}
+							</HashTagWrapper>
 						</div>
-					</CardsWrapper>
-				</Wrapper>
-			</Container>
-		</Layout>
+						<CardsWrapper>
+							<div className='cardList'>
+								{data.length === 0 &&
+									allData?.users.map((v) => (
+										<Card
+											{...v}
+											onClick={() => getDetailInfo(v?.id)}
+										/>
+									))}
+								{data &&
+									data.map((v) => (
+										<Card
+											{...v}
+											onClick={() => getDetailInfo(v?.id)}
+										/>
+									))}
+							</div>
+						</CardsWrapper>
+					</Wrapper>
+				</Container>
+			</Layout>
+			{modalOnOff !== -1 && (
+				<Modal onClick={() => setModalOnOff(-1)}>
+					<ModalWrapper className='mycard'>
+						<div
+							className='business'
+							style={{ position: 'relative', width: '400px' }}
+						>
+							<Bcard {...modalOnOff} />
+						</div>
+						<MemoInput
+							value={memo}
+							placeholder='메모를 적어주세요'
+							onChange={(e) => setMemo(e.target.value)}
+						/>
+						<SubmitButton onClick={submitMemo}>메모하기</SubmitButton>
+					</ModalWrapper>
+				</Modal>
+			)}
+		</>
 	);
 };
 
