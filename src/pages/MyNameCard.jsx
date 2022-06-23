@@ -1,4 +1,3 @@
-import { confirmAlert } from 'react-confirm-alert';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -6,7 +5,6 @@ import myPageApi from '../app/api/myPageApi';
 import Bcard from '../components/bcard';
 import Layout from '../components/layout';
 import LeftTitleLogo from '../components/leftTitleLogo';
-import '../styles/confirm.css';
 
 const Container = styled.div`
 	position: relative;
@@ -50,43 +48,7 @@ function MyNameCard() {
 	const { data } = myPageApi.useGetMyBusinessCardQuery();
 	console.log(data);
 	const handleClickBasic = () => {
-		confirmAlert({
-			customUI: ({ onClose }) => {
-				return (
-					<div className='custom-ui'>
-						<h1>
-							원하시는 방식을
-							<br />
-							선택해주세요.
-						</h1>
-						<p>
-							D.I.Y는 원하는 정보를 자유롭게 입력할 수 있습니다.
-							<br />
-							Form은 기본 정보만 입력하시면 됩니다.
-						</p>
-
-						<button
-							type='submit'
-							onClick={() => {
-								navigate('/createDiy');
-								onClose();
-							}}
-						>
-							D.I.Y
-						</button>
-						<button
-							type='submit'
-							onClick={() => {
-								navigate('/selectDesign');
-								onClose();
-							}}
-						>
-							Form
-						</button>
-					</div>
-				);
-			},
-		});
+		navigate('/selectDesign');
 	};
 
 	return (
