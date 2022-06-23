@@ -30,14 +30,14 @@ const Container = styled.div`
 		line-height: 29px;
 		position: absolute;
 		left: 27px;
-		top: 25px;
+		top: 36px;
 	}
 	.job {
 		font-size: 20px;
 		line-height: 24px;
 		position: absolute;
 		left: 27px;
-		top: 58px;
+		top: 64px;
 		font-weight: 400;
 	}
 	.qr {
@@ -86,7 +86,7 @@ const Bcard = ({
 						className='tag'
 						id='grid'
 					>
-						{tags.map((v) => `#${v}`).join(' ')}
+						{tags?.map((v) => `#${v}`).join(' ')}
 					</div>
 					<div
 						className='mail'
