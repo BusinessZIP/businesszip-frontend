@@ -41,22 +41,28 @@ const FormWrapper = styled.div`
 
 const Title = styled.h2`
 	color: black;
+	font-family: 'MICEGothic';
 	font-size: 2rem;
 `;
 
 const SignUpInput = styled(Input)`
 	color: black;
+	font-family: 'MICEGothic';
 	font-size: 1.2rem;
 	::placeholder {
+		font-family: 'MICEGothic';
 		font-size: 1.2rem;
-		color: black;
+		color: gray;
 	}
 	height: 4rem;
 `;
 
 const SignInButton = styled.button`
+	cursor: pointer;
 	background: #4365db;
 	border-radius: 20px;
+	font-family: 'MICEGothic';
+	font-size: 1.2rem;
 	color: white;
 	width: 100%;
 	border: none;
