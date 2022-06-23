@@ -13,7 +13,7 @@ const myPageApi = baseApi
 				}),
 				providesTags: () => [{ type: 'MyPage', id: 'LIST' }],
 			}),
-			getMyBusinessCardInfo: builder.mutation({
+			getMyBusinessCardInfo: builder.query({
 				query: (args) => ({
 					url: '/api/v1/mypage/info',
 					method: 'POST',
@@ -33,7 +33,7 @@ const myPageApi = baseApi
 						address: args.address ?? null,
 						job: args.job ?? null,
 						email: args.email ?? null,
-						phone: args.phoneNumber ?? null,
+						phone: args.phone ?? null,
 						tags: args.tags ?? [],
 					},
 				}),

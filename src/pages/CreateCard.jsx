@@ -218,7 +218,7 @@ function CreateCard() {
 								errorMessage={errors.phoneNumber?.message}
 								color='#838383'
 								placeholder='전화번호'
-								{...register('phoneNumber', {
+								{...register('phone', {
 									pattern: {
 										value: /^([\d]{3}-[\d]{4}-[\d]{4}|[\d]{11})$/,
 										message: '올바른 전화번호가 아닙니다.',
