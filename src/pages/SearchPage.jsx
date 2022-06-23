@@ -136,10 +136,6 @@ const SubmitButton = styled.button`
 	}
 `;
 
-const HashTag = () => {
-	return <HashTagStyle>#develop</HashTagStyle>;
-};
-
 const Card = ({ onClick, ...v }) => {
 	return (
 		<Bcard
@@ -210,9 +206,12 @@ const SearchPage = () => {
 								<SearchButton onClick={onSearch}>검색</SearchButton>
 							</SearchWrapper>
 							<HashTagWrapper>
-								{Array.from({ length: 6 }).map(() => (
-									<HashTag />
-								))}
+								<HashTagStyle>#developer</HashTagStyle>
+								<HashTagStyle>#designer</HashTagStyle>
+								<HashTagStyle>#Backend</HashTagStyle>
+								<HashTagStyle>#Frontend</HashTagStyle>
+								<HashTagStyle>#Spring</HashTagStyle>
+								<HashTagStyle>#React</HashTagStyle>
 							</HashTagWrapper>
 						</div>
 						<CardsWrapper>
