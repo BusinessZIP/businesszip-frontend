@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Layout from '@/components/layout';
@@ -47,6 +48,7 @@ const Button = styled.button`
 `;
 
 const SelectCreateFormPage = () => {
+	const navigate = useNavigate();
 	return (
 		<BackColor>
 			<Layout
@@ -55,10 +57,10 @@ const SelectCreateFormPage = () => {
 			/>
 			<Container>
 				<Wrapper>
-					<Button>
+					<Button onClick={() => navigate('/createDiy')}>
 						<p>D.I.Y</p>
 					</Button>
-					<Button>
+					<Button onClick={() => navigate('/selectDesign')}>
 						<pre>
 							{'기본\n'}
 							<p>Form</p>

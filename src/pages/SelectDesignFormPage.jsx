@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Bcard from '../components/bcard';
 import Layout from '../components/layout';
 
 const Container = styled.div`
@@ -19,12 +21,6 @@ const Wrapper = styled.div`
 	gap: 3rem 2rem;
 `;
 
-const BcardForm = styled.div`
-	width: 30vw;
-	height: 20vh;
-	background: whitesmoke;
-`;
-
 const BcardWrapper = styled.div`
 	position: relative;
 	svg {
@@ -34,6 +30,28 @@ const BcardWrapper = styled.div`
 		transform: translate(-50%, -50%);
 		width: 4rem;
 		height: 4rem;
+	}
+`;
+
+const BcardButton = styled.button`
+	cursor: pointer;
+	background: #e67a7a;
+	font-family: 'MICEGothic';
+	font-size: 1.2rem;
+	border-radius: 20px;
+	color: white;
+	width: 100%;
+	border: none;
+	padding: 1.6rem 0px;
+	&:hover,
+	&:focus {
+		color: white;
+		box-shadow: inset 15em 0 0 0 #e99494;
+		background: #e99494;
+		transition: all 0.5s;
+		&:before {
+			width: 100%;
+		}
 	}
 `;
 
@@ -60,7 +78,13 @@ const CheckIcon = () => (
 );
 
 const SelectDesignFormPage = () => {
+	const navigate = useNavigate();
 	const [selectedForm, setSelectedForm] = useState();
+
+	const goNextPage = () => {
+		navigate('/create');
+	};
+
 	return (
 		<Layout
 			title='디자인 시안 선택'
@@ -70,12 +94,13 @@ const SelectDesignFormPage = () => {
 			<Container>
 				<Wrapper>
 					{Array.from({ length: 6 }).map((v, i) => (
-						<BcardWrapper>
-							<BcardForm onClick={() => setSelectedForm(i)} />
+						<BcardWrapper onClick={() => setSelectedForm(i)}>
+							<Bcard />
 							{selectedForm === i && <CheckIcon />}
 						</BcardWrapper>
 					))}
 				</Wrapper>
+				<BcardButton onClick={goNextPage}>선택 완료하기</BcardButton>
 			</Container>
 		</Layout>
 	);
