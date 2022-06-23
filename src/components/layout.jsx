@@ -33,7 +33,12 @@ const Header = styled.div`
 		cursor: pointer;
 	}
 
-	${({ background }) => background}
+	background: ${({ background }) => background};
+	h2 {
+		position: absolute;
+		left: 2rem;
+		color: white;
+	}
 `;
 
 const Children = styled.div`
@@ -68,10 +73,11 @@ const HEADER_MAPS = [
 	},
 ];
 
-const Layout = ({ headers = HEADER_MAPS, title, children, ...rest }) => {
+const Layout = ({ headers = HEADER_MAPS, headerTitle, title, children, ...rest }) => {
 	return (
 		<>
 			<Header {...rest}>
+				{headerTitle && <h2>{headerTitle}</h2>}
 				{headers.map((header) => (
 					<Menu
 						key={header.name}
