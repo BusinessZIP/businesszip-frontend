@@ -13,6 +13,7 @@
 	},
 	"plugins": ["react", "prettier"],
 	"rules": {
+		"react/no-unstable-nested-components": ["off", { "allowAsProps": true }],
 		"prettier/prettier": "error",
 		"no-param-reassign": ["error", { "props": false }],
 		"react/function-component-definition": "off",
