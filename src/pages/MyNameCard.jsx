@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Bcard from '../components/bcard';
 import Layout from '../components/layout';
 import LeftTitleLogo from '../components/leftTitleLogo';
-import './confirm.css';
+import '../styles/confirm.css';
 
 const Container = styled.div`
 	position: relative;
@@ -21,9 +21,6 @@ const Wrapper = styled.div`
 	padding: 2.5rem;
 	gap: 3rem;
 `;
-// const ConfirmStyle = styled.div`
-// 	background-color: black;
-// `;
 
 const AddButton = styled.button`
 	border: none;
@@ -62,7 +59,6 @@ function handleClickBasic() {
 }
 
 function MyNameCard() {
-	// const navigate = useNavigate();
 	return (
 		<Layout
 			title='내 명함'
