@@ -6,7 +6,6 @@ const Header = styled.div`
 	margin-left: auto;
 	display: flex;
 	justify-content: flex-end;
-	background: white;
 	width: 100%;
 	height: 80px;
 	align-items: center;
@@ -90,7 +89,7 @@ const Layout = ({ headers = HEADER_MAPS, title, children, ...rest }) => {
 					/>
 				))}
 			</Header>
-			<Children>{children}</Children>
+			{children && <Children>{children}</Children>}
 		</>
 	);
 };
