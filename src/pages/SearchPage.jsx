@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import Bcard from '../components/bcard';
 import Layout from '../components/layout';
 import LeftTitleLogo from '../components/leftTitleLogo';
 
@@ -20,7 +21,7 @@ const Container = styled.div`
 		display: flex;
 		flex-direction: row nowrap;
 		flex-wrap: wrap;
-		justify-content: space-around;
+		justify-content: space-between;
 		align-items: center;
 	}
 `;
@@ -179,13 +180,7 @@ const CardStyle = styled.div`
 		right: 0;
 		z-index: 1;
 	}
-	figure.snip:hover img,
-	figure.snip.hover img {
-		zoom: 1;
-		filter: blur(3px);
-		-webkit-opacity: 0.5;
-		opacity: 0.5;
-	}
+
 	figure.snip:hover:after,
 	figure.snip.hover:after {
 		opacity: 1;
@@ -214,10 +209,7 @@ const Card = () => {
 	return (
 		<CardStyle>
 			<figure className='snip'>
-				<img
-					src='https://identity.snu.ac.kr/webdata/uploads/identity/image/2021/06/5-6-5.png'
-					alt='sample'
-				/>
+				<Bcard />
 				<figcaption>
 					<p
 						className='name'
