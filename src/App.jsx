@@ -6,6 +6,7 @@ import CreateCard from './pages/CreateCard';
 // import CreateDiyPage from './pages/CreateDiyPage';
 import MainPage from './pages/MainPage';
 import MyNameCard from './pages/MyNameCard';
+import NameCard from './pages/NameCard';
 import NotFound from './pages/NotFound';
 import SearchPage from './pages/SearchPage';
 import SelectCreateFormPage from './pages/SelectCreateFormPage';
@@ -50,6 +51,10 @@ function App() {
 					<Route
 						path='/create'
 						element={<CreateCard />}
+					/>
+					<Route
+						path='/shareCard'
+						element={<NameCard />}
 					/>
 					{/* <Route
 					path='/createDiy'
