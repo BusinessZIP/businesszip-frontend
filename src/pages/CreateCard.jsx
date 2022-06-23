@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+
+import myPageApi from '../app/api/myPageApi';
+import Bcard from '../components/bcard';
+import Modal from '../components/modal';
+import { CARD_TYPE_MAPS } from '../utils/cardType';
 
 import Input from '@/components/input';
 import Layout from '@/components/layout';
@@ -119,11 +124,37 @@ const HashtagWrapper = styled.div`
 	}
 `;
 
+const BcardButton = styled.button`
+	cursor: pointer;
+	background: #e67a7a;
+	font-family: 'MICEGothic';
+	font-size: 1.2rem;
+	border-radius: 20px;
+	color: white;
+	width: 100%;
+	margin-top: 1rem;
+	border: none;
+	padding: 1rem 0px;
+	&:hover,
+	&:focus {
+		color: white;
+		box-shadow: inset 15em 0 0 0 #e99494;
+		background: #e99494;
+		transition: all 0.5s;
+		&:before {
+			width: 100%;
+		}
+	}
+`;
+
 function CreateCard() {
+	const navigate = useNavigate();
 	const [hashtag, setHashtag] = useState([]);
+	const [modalOnOff, setModalOnOff] = useState(false);
+	const [submitData, setSubmitData] = useState({});
 	const { type } = useLocation().state;
 	console.log(type);
-	// const [createBcard] = businessCardApi.useCreateBusinessCardMutation();
+	const [createBcard] = myPageApi.useCreateBusinessCardMutation();
 	const [input, setInput] = useState('');
 	const {
 		register,
@@ -147,78 +178,105 @@ function CreateCard() {
 	};
 
 	const onSubmit = (data) => {
-		console.log(data);
+		setSubmitData(data);
+		setModalOnOff(true);
+	};
+
+	const createCard = async () => {
+		const {
+			data: { code },
+		} = await createBcard({
+			...{ ...submitData, background: CARD_TYPE_MAPS[type], tags: hashtag },
+		});
+		if (code === 201) {
+			navigate('/mypage');
+		}
 	};
 
 	return (
-		<BackColor>
-			<Layout
-				title='내 명함'
-				background='none'
-			/>
-			<Container>
-				<FormWrapper>
-					<Title>내 명함 만들기</Title>
-					<form>
-						<BusinessCardInput
-							color='#838383'
-							placeholder='이름'
-							{...register('name', {})}
-						/>
-						<BusinessCardInput
-							color='#838383'
-							placeholder='직업'
-							{...register('job', {})}
-						/>
-						<BusinessCardInput
-							errorMessage={errors.phoneNumber?.message}
-							color='#838383'
-							placeholder='전화번호'
-							{...register('phoneNumber', {
-								pattern: {
-									value: /^([\d]{3}-[\d]{4}-[\d]{4}|[\d]{11})$/,
-									message: '올바른 전화번호가 아닙니다.',
-								},
-							})}
-						/>
-						<BusinessCardInput
-							errorMessage={errors.email?.message}
-							color='#838383'
-							placeholder='이메일'
-							{...register('email', {
-								pattern: {
-									value: /^[A-Za-z0-9._%+-]+@[\S+.]+$/,
-									message: '이메일형식만 사용할 수 있습니다.',
-								},
-							})}
-						/>
-						<BusinessCardInput
-							color='#838383'
-							placeholder='주소'
-							{...register('address', {})}
-						/>
-						<HashtagWrapper>
-							{hashtag &&
-								hashtag.map((content) => (
-									<HashTagStyle onClick={() => deleteHashtag(content)}>
-										<div className='tagone'>#{content}</div>
-									</HashTagStyle>
-								))}
+		<>
+			<BackColor>
+				<Layout
+					title='내 명함'
+					background='none'
+				/>
+				<Container>
+					<FormWrapper>
+						<Title>내 명함 만들기</Title>
+						<form>
 							<BusinessCardInput
 								color='#838383'
-								placeholder='태그'
-								onKeyDown={addHashtag}
-								value={input}
-								onChange={(e) => setInput(e.target.value)}
+								placeholder='이름'
+								{...register('name', {})}
 							/>
-						</HashtagWrapper>
-					</form>
-					<BusinessCardButton onClick={handleSubmit(onSubmit)}>
-						등록하기
-					</BusinessCardButton>
-				</FormWrapper>
-			</Container>
-		</BackColor>
+							<BusinessCardInput
+								color='#838383'
+								placeholder='직업'
+								{...register('job', {})}
+							/>
+							<BusinessCardInput
+								errorMessage={errors.phoneNumber?.message}
+								color='#838383'
+								placeholder='전화번호'
+								{...register('phoneNumber', {
+									pattern: {
+										value: /^([\d]{3}-[\d]{4}-[\d]{4}|[\d]{11})$/,
+										message: '올바른 전화번호가 아닙니다.',
+									},
+								})}
+							/>
+							<BusinessCardInput
+								errorMessage={errors.email?.message}
+								color='#838383'
+								placeholder='이메일'
+								{...register('email', {
+									pattern: {
+										value: /^[A-Za-z0-9._%+-]+@[\S+.]+$/,
+										message: '이메일형식만 사용할 수 있습니다.',
+									},
+								})}
+							/>
+							<BusinessCardInput
+								color='#838383'
+								placeholder='주소'
+								{...register('address', {})}
+							/>
+							<HashtagWrapper>
+								{hashtag &&
+									hashtag.map((content) => (
+										<HashTagStyle onClick={() => deleteHashtag(content)}>
+											<div className='tagone'>#{content}</div>
+										</HashTagStyle>
+									))}
+								<BusinessCardInput
+									color='#838383'
+									placeholder='태그'
+									onKeyDown={addHashtag}
+									value={input}
+									onChange={(e) => setInput(e.target.value)}
+								/>
+							</HashtagWrapper>
+						</form>
+						<BusinessCardButton onClick={handleSubmit(onSubmit)}>
+							등록하기
+						</BusinessCardButton>
+					</FormWrapper>
+				</Container>
+			</BackColor>
+			{modalOnOff && (
+				<Modal onClick={() => setModalOnOff(false)}>
+					<div
+						className='mycard'
+						style={{ position: 'relative', width: '400px' }}
+					>
+						<Bcard
+							{...{ ...submitData, background: CARD_TYPE_MAPS[type], tags: hashtag }}
+						/>
+					</div>
+					<BcardButton onClick={createCard}>확인</BcardButton>
+				</Modal>
+			)}
+		</>
 	);
 }
 

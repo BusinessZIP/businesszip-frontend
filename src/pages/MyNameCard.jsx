@@ -2,6 +2,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import myPageApi from '../app/api/myPageApi';
 import Bcard from '../components/bcard';
 import Layout from '../components/layout';
 import LeftTitleLogo from '../components/leftTitleLogo';
@@ -40,6 +41,8 @@ const AddButton = styled.button`
 
 function MyNameCard() {
 	const navigate = useNavigate();
+	const { data } = myPageApi.useGetMyBusinessCardQuery();
+	console.log(data);
 	const handleClickBasic = () => {
 		confirmAlert({
 			customUI: ({ onClose }) => {
@@ -90,12 +93,15 @@ function MyNameCard() {
 					<LeftTitleLogo />
 				</div>
 				<Wrapper>
-					<div
-						className='mycard'
-						style={{ position: 'relative', width: '400px' }}
-					>
-						<Bcard />
-					</div>
+					{data?.mycards !== undefined &&
+						data.mycards?.map((v) => (
+							<div
+								className='mycard'
+								style={{ position: 'relative', width: '400px' }}
+							>
+								<Bcard {...v} />
+							</div>
+						))}
 					<AddButton onClick={handleClickBasic}>+</AddButton>
 				</Wrapper>
 			</Container>
