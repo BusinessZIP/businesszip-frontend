@@ -54,10 +54,10 @@ const SearchButton = styled.button`
 	color: white;
 	width: 5vw;
 	height: 6vh;
-	font-family: 'MICEGothic Bold';
-	font-size: 1.6rem;
+	font-family: 'MICEGothic';
+	font-size: 1.1rem;
 	border: none;
-	background: rgba(23, 122, 75, 0.83);
+	background: #2474d2;
 	box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.12);
 	border-radius: 30px;
 `;
@@ -67,7 +67,7 @@ const Input = styled.input`
 	width: 30vw;
 	height: 6vh;
 	font-family: 'MICEGothic';
-	font-size: 1.6rem;
+	font-size: 1rem;
 	padding: 1rem 2rem;
 	box-sizing: border-box;
 	background: #ffffff;
@@ -79,23 +79,17 @@ const HashTagStyle = styled.div`
 	width: 6vw;
 	padding: 0.6rem 2rem;
 	text-align: center;
-	background: #edf3eb;
+	background: #d4e3f4;
+	font-family: 'MICEGothic';
 	box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.12);
 	border-radius: 20px;
 `;
 
 const CardStyle = styled.div`
-	/* img {
-		cursor: pointer;
-		display: flex;
-		width: 400px;
-		padding: 20px 50px;
-	} */
-
 	@import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
 	@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 	figure.snip {
-		font-family: 'Raleway', Arial, sans-serif;
+		font-family: 'MICEGothic';
 		position: relative;
 		overflow: hidden;
 		margin: 10px;
@@ -238,7 +232,10 @@ const Card = () => {
 
 const SearchPage = () => {
 	return (
-		<Layout title='명함 검색'>
+		<Layout
+			title='명함 모음집'
+			headerTitleB='Business.zip'
+		>
 			<Container>
 				<div style={{ position: 'absolute', left: '0px', height: '100%' }}>
 					<LeftTitleLogo

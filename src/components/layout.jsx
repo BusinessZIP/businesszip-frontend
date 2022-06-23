@@ -71,7 +71,7 @@ const HEADER_MAPS = [
 	},
 
 	{
-		name: '명함 검색',
+		name: '명함 모음집',
 		path: '/search',
 	},
 
