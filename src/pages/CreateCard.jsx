@@ -85,7 +85,10 @@ function CreateCard() {
 
 	return (
 		<BackColor>
-			<Layout title='내 명함' />
+			<Layout
+				title='내 명함'
+				transparent
+			/>
 			<Container>
 				<FormWrapper>
 					<Title>내 명함 만들기</Title>
