@@ -50,37 +50,49 @@ const Container = styled.div`
 	}
 `;
 
-const Bcard = ({ background }) => {
+const Bcard = ({
+	background,
+	address,
+	email,
+	name,
+	id,
+	job,
+	member_id: memberId,
+	phone,
+	tags,
+	url,
+}) => {
+	console.log(id, url, memberId);
 	return (
 		<Container background={background}>
 			<div className='all'>
-				<div className='name'>이름임</div>
-				<div className='job'>직군</div>
+				<div className='name'>{name}</div>
+				<div className='job'>{job}</div>
 				<div className='qr'>qr</div>
 				<div className='grid-container'>
 					<div
 						className='number'
 						id='grid'
 					>
-						N 010-1234-5678
+						N {phone}
 					</div>
 					<div
 						className='address'
 						id='grid'
 					>
-						A 서울특별시 동작구 상도로 37길 43 어쩌구호
+						A {address}
 					</div>
 					<div
 						className='tag'
 						id='grid'
 					>
-						#develop #mynameis #secret
+						{tags.map((v) => `#${v}`).join(' ')}
 					</div>
 					<div
 						className='mail'
 						id='grid'
 					>
-						E ink000706@naver.com
+						E {email}
 					</div>
 				</div>
 			</div>

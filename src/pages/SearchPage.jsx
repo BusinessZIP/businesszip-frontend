@@ -1,5 +1,7 @@
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
+import searchApi from '../app/api/searchApi';
 import Bcard from '../components/bcard';
 import Layout from '../components/layout';
 import LeftTitleLogo from '../components/leftTitleLogo';
@@ -99,7 +101,7 @@ const CardStyle = styled.div`
 		width: 100%;
 		color: #ffffff;
 		text-align: left;
-		background-color: #000000;
+		/* background-color: #000000; */
 	}
 	figure.snip * {
 		-webkit-box-sizing: border-box;
@@ -205,11 +207,11 @@ const HashTag = () => {
 	return <HashTagStyle>#develop</HashTagStyle>;
 };
 
-const Card = () => {
+const Card = ({ ...v }) => {
 	return (
 		<CardStyle>
 			<figure className='snip'>
-				<Bcard />
+				<Bcard {...v} />
 				<figcaption>
 					<p
 						className='name'
@@ -231,6 +233,26 @@ const Card = () => {
 };
 
 const SearchPage = () => {
+	const inputRef = useRef(null);
+	const [data, setData] = useState([]);
+	const [getByInfo] = searchApi.useGetBcardByInfoMutation();
+	const [getByTag] = searchApi.useGetBcardByTagMutation();
+
+	const onSearch = async () => {
+		if (inputRef.current.value === '') return;
+
+		const {
+			data: { users },
+		} = inputRef.current.value.includes('#')
+			? await getByTag(inputRef.current.value)
+			: await getByInfo(inputRef.current.value);
+
+		setData(users);
+	};
+
+	useEffect(() => {
+		console.log(data);
+	}, [data]);
 	return (
 		<Layout
 			title='명함 모음집'
@@ -246,8 +268,11 @@ const SearchPage = () => {
 				<Wrapper>
 					<div className='center'>
 						<SearchWrapper>
-							<Input placeholder='검색해보세요' />
-							<SearchButton>검색</SearchButton>
+							<Input
+								placeholder='검색해보세요'
+								ref={inputRef}
+							/>
+							<SearchButton onClick={onSearch}>검색</SearchButton>
 						</SearchWrapper>
 						<HashTagWrapper>
 							{Array.from({ length: 6 }).map(() => (
@@ -256,11 +281,7 @@ const SearchPage = () => {
 						</HashTagWrapper>
 					</div>
 					<CardsWrapper>
-						<div className='cardList'>
-							{Array.from({ length: 3 }).map(() => (
-								<Card />
-							))}
-						</div>
+						<div className='cardList'>{data && data.map((v) => <Card {...v} />)}</div>
 					</CardsWrapper>
 				</Wrapper>
 			</Container>
