@@ -15,7 +15,7 @@ import baseApi from '@/app/api/baseApi';
 import { authSlice } from '@/app/api/mainApi';
 
 const persistConfig = {
-	key: 'travely',
+	key: 'Bcard',
 	version: 1,
 	storage,
 	whitelist: [authSlice.name],

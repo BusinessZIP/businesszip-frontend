@@ -9,17 +9,17 @@ export const api = baseApi.enhanceEndpoints({}).injectEndpoints({
 				url: '/api/v1/login',
 				method: 'POST',
 				body: {
-					userId: args.email,
+					email: args.email,
 					password: args.password,
 				},
 			}),
 		}),
 		signUp: builder.mutation({
 			query: (args) => ({
-				url: '/apiv1//signup',
+				url: '/api/v1/signup',
 				method: 'POST',
 				body: {
-					userId: args.email,
+					email: args.email,
 					password: args.password,
 					name: args.name,
 					phone: args.phoneNumber,

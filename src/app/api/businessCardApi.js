@@ -15,7 +15,7 @@ const businessCardApi = baseApi
 					},
 				}),
 			}),
-			getBusinessCardInfo: builder.mutation({
+			getBusinessCardInfo: builder.query({
 				query: (args) => ({
 					url: '/api/v1/bcard/info',
 					method: 'POST',
