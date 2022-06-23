@@ -6,13 +6,10 @@ const myPageApi = baseApi
 	})
 	.injectEndpoints({
 		endpoints: (builder) => ({
-			getMyBusinessCard: builder.mutation({
-				query: (args) => ({
+			getMyBusinessCard: builder.query({
+				query: () => ({
 					url: '/api/v1/mypage',
 					method: 'POST',
-					body: {
-						id: args.id,
-					},
 				}),
 				providesTags: () => [{ type: 'MyPage', id: 'LIST' }],
 			}),
@@ -31,13 +28,13 @@ const myPageApi = baseApi
 					method: 'POST',
 					body: {
 						background: args.background,
-						url: args.url,
-						name: args.name,
-						address: args.address,
-						job: args.job,
-						email: args.email,
-						phone: args.phoneNumber,
-						tags: args.tags,
+						url: args.url ?? null,
+						name: args.name ?? null,
+						address: args.address ?? null,
+						job: args.job ?? null,
+						email: args.email ?? null,
+						phone: args.phoneNumber ?? null,
+						tags: args.tags ?? [],
 					},
 				}),
 				invalidatesTags: () => [{ type: 'MyPage', id: 'LIST' }],
