@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Input from '@/components/input';
@@ -119,6 +120,8 @@ const HashtagWrapper = styled.div`
 
 function CreateCard() {
 	const [hashtag, setHashtag] = useState([]);
+	const { type } = useLocation().state;
+	console.log(type);
 	// const [createBcard] = businessCardApi.useCreateBusinessCardMutation();
 	const [input, setInput] = useState('');
 	const {

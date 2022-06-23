@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Bcard from '../components/bcard';
 import Layout from '../components/layout';
+import { CARD_TYPE_MAPS } from '../utils/cardType';
 
 const Container = styled.div`
 	position: relative;
@@ -78,12 +79,7 @@ const CheckIcon = () => (
 );
 
 const SelectDesignFormPage = () => {
-	const navigate = useNavigate();
-	const [selectedForm, setSelectedForm] = useState();
-
-	const goNextPage = () => {
-		navigate('/create');
-	};
+	const [selectedType, setSelectedType] = useState();
 
 	return (
 		<Layout
@@ -94,14 +90,19 @@ const SelectDesignFormPage = () => {
 		>
 			<Container>
 				<Wrapper>
-					{Array.from({ length: 6 }).map((v, i) => (
-						<BcardWrapper onClick={() => setSelectedForm(i)}>
-							<Bcard />
-							{selectedForm === i && <CheckIcon />}
+					{Object.entries(CARD_TYPE_MAPS).map(([key, value]) => (
+						<BcardWrapper onClick={() => setSelectedType(key)}>
+							<Bcard background={value} />
+							{selectedType === key && <CheckIcon />}
 						</BcardWrapper>
 					))}
 				</Wrapper>
-				<BcardButton onClick={goNextPage}>선택 완료하기</BcardButton>
+				<Link
+					to='/create'
+					state={{ type: selectedType }}
+				>
+					<BcardButton>선택 완료하기</BcardButton>
+				</Link>
 			</Container>
 		</Layout>
 	);
