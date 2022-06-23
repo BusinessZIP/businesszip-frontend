@@ -1,4 +1,8 @@
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+
+import myPageApi from '../app/api/myPageApi';
+import Bcard from '../components/bcard';
 
 const MainStyle = styled.div`
 	.card {
@@ -39,10 +43,18 @@ const ShareButton = styled.button`
 `;
 
 function NameCard() {
+	const { id } = useLocation().state;
+	const { data } = myPageApi.useGetMyBusinessCardInfoQuery({ id });
+	console.log(data);
 	return (
 		<MainStyle>
 			<div className='wrap'>
-				<div className='card'>Bcard 들어올 곳</div>
+				<div
+					className='card'
+					style={{ position: 'relative', width: '400px' }}
+				>
+					<Bcard {...data?.user} />
+				</div>
 			</div>
 			<ShareButton>명함모음집에 추가하기</ShareButton>
 		</MainStyle>

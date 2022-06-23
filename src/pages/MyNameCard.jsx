@@ -1,5 +1,5 @@
 import { confirmAlert } from 'react-confirm-alert';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import myPageApi from '../app/api/myPageApi';
@@ -105,7 +105,14 @@ function MyNameCard() {
 								className='mycard'
 								style={{ position: 'relative', width: '400px' }}
 							>
-								<Bcard {...v} />
+								<Link
+									to='/shareCard'
+									state={{
+										id: v.id,
+									}}
+								>
+									<Bcard {...v} />
+								</Link>
 							</div>
 						))}
 					<AddButton onClick={handleClickBasic}>+</AddButton>
