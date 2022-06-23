@@ -252,10 +252,6 @@ const CardStyle = styled.div`
 	}
 `;
 
-const HashTag = () => {
-	return <HashTagStyle>#develop</HashTagStyle>;
-};
-
 const Card = ({ onClick, ...v }) => {
 	return (
 		<CardStyle onClick={onClick}>
@@ -266,15 +262,15 @@ const Card = ({ onClick, ...v }) => {
 						className='name'
 						id='up'
 					>
-						이름임
+						김수헌
 					</p>
 					<p
 						className='job'
 						id='up'
 					>
-						Kakao
+						학생
 					</p>
-					<p className='tagsString'>#develop #예시</p>
+					<p className='tagsString'>#Springboot #developer</p>
 				</figcaption>
 			</figure>
 		</CardStyle>
@@ -342,9 +338,12 @@ const SearchPage = () => {
 								<SearchButton onClick={onSearch}>검색</SearchButton>
 							</SearchWrapper>
 							<HashTagWrapper>
-								{Array.from({ length: 6 }).map(() => (
-									<HashTag />
-								))}
+								<HashTagStyle>#developer</HashTagStyle>
+								<HashTagStyle>#designer</HashTagStyle>
+								<HashTagStyle>#Backend</HashTagStyle>
+								<HashTagStyle>#Frontend</HashTagStyle>
+								<HashTagStyle>#Spring</HashTagStyle>
+								<HashTagStyle>#React</HashTagStyle>
 							</HashTagWrapper>
 						</div>
 						<CardsWrapper>

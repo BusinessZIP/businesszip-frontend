@@ -1,3 +1,4 @@
+import { QRCodeSVG } from 'qrcode.react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -48,6 +49,10 @@ const Container = styled.div`
 		top: 25px;
 		background-color: gray;
 	}
+	svg {
+		width: 40px;
+		height: 40px;
+	}
 `;
 
 const Bcard = ({
@@ -68,7 +73,12 @@ const Bcard = ({
 			<div className='all'>
 				<div className='name'>{name}</div>
 				<div className='job'>{job}</div>
-				<div className='qr'>qr</div>
+				<div className='qr'>
+					<QRCodeSVG
+						className='svgqr'
+						value='/search'
+					/>
+				</div>
 				<div className='grid-container'>
 					<div
 						className='number'
