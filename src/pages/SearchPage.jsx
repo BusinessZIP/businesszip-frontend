@@ -26,7 +26,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-	margin-left: 30vmin;
+	margin: 0 10vw;
 	display: flex;
 	flex-direction: column;
 	padding: 2.5rem;
