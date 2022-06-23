@@ -126,7 +126,7 @@ const HashtagWrapper = styled.div`
 
 const BcardButton = styled.button`
 	cursor: pointer;
-	background: #e67a7a;
+	background: #2474d2;
 	font-family: 'MICEGothic';
 	font-size: 1.2rem;
 	border-radius: 20px;
@@ -138,8 +138,8 @@ const BcardButton = styled.button`
 	&:hover,
 	&:focus {
 		color: white;
-		box-shadow: inset 15em 0 0 0 #e99494;
-		background: #e99494;
+		box-shadow: inset 15em 0 0 0 #195193;
+		background: #195193;
 		transition: all 0.5s;
 		&:before {
 			width: 100%;

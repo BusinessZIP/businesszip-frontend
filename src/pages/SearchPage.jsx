@@ -137,6 +137,7 @@ const SubmitButton = styled.button`
 `;
 
 const CardStyle = styled.div`
+	cursor: pointer;
 	@import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
 	@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 	figure.snip {
