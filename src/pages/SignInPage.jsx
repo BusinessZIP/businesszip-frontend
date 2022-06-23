@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { api } from '../app/api/mainApi';
+
 import Input from '@/components/input';
 
 const Container = styled.div`
@@ -95,6 +97,8 @@ const SignUpButton = styled(SignInButton)`
 
 function SignInPage() {
 	const navigate = useNavigate();
+	const [login] = api.useLoginMutation();
+
 	const {
 		register,
 		handleSubmit,
@@ -107,8 +111,15 @@ function SignInPage() {
 
 	const goSignUpPage = () => navigate('/signUp');
 
-	const onSubmit = (data) => {
+	const onSubmit = async (data) => {
 		console.log(data);
+		const {
+			data: { code },
+		} = await login(data);
+
+		if (code === 200) {
+			navigate('/mypage');
+		}
 	};
 
 	return (

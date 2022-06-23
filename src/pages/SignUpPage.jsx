@@ -1,5 +1,8 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { api } from '../app/api/mainApi';
 
 import Input from '@/components/input';
 
@@ -81,6 +84,8 @@ const SignInButton = styled.button`
 `;
 
 function SignUpPage() {
+	const navigate = useNavigate();
+	const [signUp] = api.useSignUpMutation();
 	const {
 		register,
 		handleSubmit,
@@ -91,8 +96,12 @@ function SignUpPage() {
 		defaultValues: {},
 	});
 
-	const onSubmit = (data) => {
-		console.log(data);
+	const onSubmit = async (data) => {
+		const {
+			data: { code },
+		} = await signUp(data);
+		if (code === 201) navigate('/');
+		if (code === 401) alert('이미 가입된 유저입니다.');
 	};
 
 	return (
