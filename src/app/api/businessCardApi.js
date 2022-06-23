@@ -6,13 +6,10 @@ const businessCardApi = baseApi
 	})
 	.injectEndpoints({
 		endpoints: (builder) => ({
-			getBusinessCards: builder.mutation({
-				query: (args) => ({
+			getBusinessCards: builder.query({
+				query: () => ({
 					url: '/api/v1/bcard',
 					method: 'POST',
-					body: {
-						id: args.id,
-					},
 				}),
 			}),
 			getBusinessCardInfo: builder.query({

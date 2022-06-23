@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import businessCardApi from '../app/api/businessCardApi';
 import searchApi from '../app/api/searchApi';
 import Bcard from '../components/bcard';
 import Layout from '../components/layout';
@@ -233,19 +234,18 @@ const Card = ({ ...v }) => {
 };
 
 const SearchPage = () => {
-	const inputRef = useRef(null);
+	const [input, setInput] = useState('');
 	const [data, setData] = useState([]);
+	const { data: allData } = businessCardApi.useGetBusinessCardsQuery();
+	console.log(allData);
 	const [getByInfo] = searchApi.useGetBcardByInfoMutation();
 	const [getByTag] = searchApi.useGetBcardByTagMutation();
 
 	const onSearch = async () => {
-		if (inputRef.current.value === '') return;
-
+		if (input === '') return;
 		const {
 			data: { users },
-		} = inputRef.current.value.includes('#')
-			? await getByTag(inputRef.current.value)
-			: await getByInfo(inputRef.current.value);
+		} = input.includes('#') ? await getByTag(input.slice(1, -1)) : await getByInfo(input);
 
 		setData(users);
 	};
@@ -270,7 +270,8 @@ const SearchPage = () => {
 						<SearchWrapper>
 							<Input
 								placeholder='검색해보세요'
-								ref={inputRef}
+								value={input}
+								onChange={(e) => setInput(e.target.value)}
 							/>
 							<SearchButton onClick={onSearch}>검색</SearchButton>
 						</SearchWrapper>
@@ -281,7 +282,11 @@ const SearchPage = () => {
 						</HashTagWrapper>
 					</div>
 					<CardsWrapper>
-						<div className='cardList'>{data && data.map((v) => <Card {...v} />)}</div>
+						<div className='cardList'>
+							{(data || allData?.users).map((v) => (
+								<Card {...v} />
+							))}
+						</div>
 					</CardsWrapper>
 				</Wrapper>
 			</Container>
