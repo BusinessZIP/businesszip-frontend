@@ -283,9 +283,8 @@ const SearchPage = () => {
 					</div>
 					<CardsWrapper>
 						<div className='cardList'>
-							{(data || allData?.users).map((v) => (
-								<Card {...v} />
-							))}
+							{data.length === 0 && allData?.users.map((v) => <Card {...v} />)}
+							{data && data.map((v) => <Card {...v} />)}
 						</div>
 					</CardsWrapper>
 				</Wrapper>
