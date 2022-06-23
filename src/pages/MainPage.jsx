@@ -21,10 +21,10 @@ const Block1Style = styled.div`
 
 	.block2 {
 		position: absolute;
-		width: 758px;
-		min-height: 427px;
-		left: 71px;
-		top: 33px;
+		width: 608px;
+		min-height: 347px;
+		left: 131px;
+		top: 98px;
 		background: linear-gradient(
 			118.87deg,
 			#e67979 19.02%,
@@ -38,10 +38,10 @@ const Block1Style = styled.div`
 
 	.block1 {
 		position: absolute;
-		width: 636px;
-		height: 390px;
-		left: 781px;
-		top: 144px;
+		width: 608px;
+		height: 317px;
+		left: 701px;
+		top: 174px;
 		background: linear-gradient(61.62deg, #a9de97 26.7%, rgba(23, 122, 75, 0.83) 71.23%);
 		border-radius: 15px;
 		animation: fadeInUp 1.3s;
@@ -49,10 +49,10 @@ const Block1Style = styled.div`
 
 	.block4 {
 		position: absolute;
-		width: 720px;
-		height: 412px;
-		left: 24px;
-		top: 391px;
+		width: 608px;
+		height: 317px;
+		left: 100px;
+		top: 398px;
 
 		background: linear-gradient(241.57deg, #7fb6e8 14.49%, rgba(34, 74, 215, 0.84) 78.86%);
 		border-radius: 15px;
@@ -61,9 +61,9 @@ const Block1Style = styled.div`
 
 	.block3 {
 		position: absolute;
-		width: 636px;
-		height: 390px;
-		left: 689px;
+		width: 608px;
+		height: 317px;
+		left: 659px;
 		top: 440px;
 
 		background: linear-gradient(109.97deg, #f3a9a4 15.03%, rgba(89, 94, 208, 0.56) 98.92%);
@@ -72,11 +72,11 @@ const Block1Style = styled.div`
 	}
 
 	.fontstyle {
-		font-family: 'MICEGothic Bold';
+		/* font-family: 'MICEGothic Bold'; */
 		font-style: normal;
 		font-weight: 700;
-		font-size: 50px;
-		line-height: 60px;
+		font-size: 35px;
+		line-height: 40px;
 		color: #ffffff;
 		text-shadow: 6px 3px 4px rgba(0, 0, 0, 0.13);
 	}
@@ -104,7 +104,7 @@ function MainPage() {
 					<div
 						className='fontstyle'
 						id='1'
-						style={{ padding: '100px 0 0 374px' }}
+						style={{ padding: '50px 0 0 424px' }}
 						role='button'
 						tabIndex={0}
 						onClick={goSearchPage}
@@ -117,7 +117,7 @@ function MainPage() {
 					<div
 						className='fontstyle'
 						id='2'
-						style={{ padding: '67px 0 0 66px' }}
+						style={{ padding: '57px 0 0 46px' }}
 						role='button'
 						tabIndex={0}
 						onClick={goMyPage}
@@ -133,7 +133,7 @@ function MainPage() {
 					<div
 						className='fontstyle'
 						id='4'
-						style={{ padding: '289px 0 0 66px' }}
+						style={{ padding: '218px 0 0 46px' }}
 					>
 						<span
 							role='button'
