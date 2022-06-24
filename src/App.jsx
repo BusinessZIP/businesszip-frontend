@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { store } from './app/store';
 import CreateCard from './pages/CreateCard';
-// import CreateDiyPage from './pages/CreateDiyPage';
+import CreateDiyPage from './pages/CreateDiyPage';
 import MainPage from './pages/MainPage';
 import MyNameCard from './pages/MyNameCard';
 import NameCard from './pages/NameCard';
@@ -56,10 +56,10 @@ function App() {
 						path='/shareCard'
 						element={<NameCard />}
 					/>
-					{/* <Route
-					path='/createDiy'
-					element={<CreateDiyPage />}
-				/> */}
+					<Route
+						path='/createDiy'
+						element={<CreateDiyPage />}
+					/>
 					<Route
 						path='*'
 						element={<NotFound />}

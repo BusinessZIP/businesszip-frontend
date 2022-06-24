@@ -1,6 +1,8 @@
 import { QRCodeSVG } from 'qrcode.react';
 import styled from 'styled-components';
 
+import Fabric from './fabric';
+
 const Container = styled.div`
 	width: 400px;
 	height: 230px;
@@ -188,45 +190,47 @@ const Bcard = ({
 	return (
 		<CardStyle onClick={onClick}>
 			<figure className='snip'>
-				<Container background={background}>
-					<div className='all'>
-						<div className='name'>{name}</div>
-						<div className='job'>{job}</div>
-						<div className='qr'>
-							<QRCodeSVG
-								className='svgqr'
-								value='/search'
-							/>
+				{url === null && (
+					<Container background={background}>
+						<div className='all'>
+							<div className='name'>{name}</div>
+							<div className='job'>{job}</div>
+							<div className='qr'>
+								<QRCodeSVG
+									className='svgqr'
+									value='/search'
+								/>
+							</div>
+							<div className='grid-container'>
+								<div
+									className='number'
+									id='grid'
+								>
+									{phone}
+								</div>
+								<div
+									className='address'
+									id='grid'
+								>
+									&nbsp;&nbsp;{address}
+								</div>
+								<div
+									className='tag'
+									id='grid'
+								>
+									{tags?.map((v) => `#${v}`).join(' ')}
+								</div>
+								<div
+									className='mail'
+									id='grid'
+								>
+									&nbsp;&nbsp;{email}
+								</div>
+							</div>
 						</div>
-						<div className='grid-container'>
-							<div
-								className='number'
-								id='grid'
-							>
-								{phone}
-							</div>
-							<div
-								className='address'
-								id='grid'
-							>
-								&nbsp;&nbsp;{address}
-							</div>
-							<div
-								className='tag'
-								id='grid'
-							>
-								{tags?.map((v) => `#${v}`).join(' ')}
-							</div>
-							<div
-								className='mail'
-								id='grid'
-							>
-								&nbsp;&nbsp;{email}
-							</div>
-						</div>
-					</div>
-				</Container>
-				{/* {url !== null && <Fabric url={url} />} */}
+					</Container>
+				)}
+				{url?.length > 20 && <Fabric url={url} />}
 				<figcaption>
 					<p
 						className='name'
