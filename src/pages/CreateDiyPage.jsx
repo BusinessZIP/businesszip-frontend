@@ -24,6 +24,9 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	padding: 2.5rem;
 	gap: 3rem;
+	canvas:nth-child(1) {
+		background: ${({ background }) => `url(${background})`};
+	}
 `;
 
 const ButtonWrapper = styled.div`
@@ -88,7 +91,7 @@ const useFabric = (ref) => {
 	const fabricRef = useCallback((element) => {
 		// if (!element) return canvas.current?.dispose();
 		/* eslint-disable no-new */
-		canvas.current = new fabric.Canvas(element, { backgroundColor: '#eee' });
+		canvas.current = new fabric.Canvas(element);
 	}, []);
 	return fabricRef;
 };
@@ -168,7 +171,7 @@ const CreateDiyPage = () => {
 	return (
 		<Layout>
 			<Container>
-				<Wrapper>
+				<Wrapper background={CARD_TYPE_MAPS[type]}>
 					<MyToolKit canvas={canvas} />
 					<MyFabric ref={canvas} />
 					<SaveButton onClick={createCard}>저장하기</SaveButton>
