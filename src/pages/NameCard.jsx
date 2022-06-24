@@ -10,7 +10,6 @@ const MainStyle = styled.div`
 		height: 230px;
 		margin: auto;
 		margin-top: 283px;
-		background-color: pink;
 	}
 `;
 
