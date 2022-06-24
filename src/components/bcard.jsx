@@ -184,7 +184,7 @@ const Bcard = ({
 	member_id: memberId,
 	phone,
 	tags,
-	url,
+	url = null,
 }) => {
 	console.log(id, memberId, url);
 	return (
