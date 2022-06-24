@@ -198,7 +198,7 @@ const Bcard = ({
 							<div className='qr'>
 								<QRCodeSVG
 									className='svgqr'
-									value='/search'
+									value={`http://49.50.162.123:8080/shareCard/${id}`}
 								/>
 							</div>
 							<div className='grid-container'>

@@ -53,7 +53,7 @@ function App() {
 						element={<CreateCard />}
 					/>
 					<Route
-						path='/shareCard'
+						path='/shareCard/:id'
 						element={<NameCard />}
 					/>
 					<Route

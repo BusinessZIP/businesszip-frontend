@@ -68,7 +68,7 @@ function MyNameCard() {
 								style={{ position: 'relative', width: '400px' }}
 							>
 								<Link
-									to='/shareCard'
+									to={`/shareCard/${v.id}`}
 									state={{
 										id: v.id,
 									}}

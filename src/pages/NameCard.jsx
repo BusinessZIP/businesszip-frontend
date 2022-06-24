@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import myPageApi from '../app/api/myPageApi';
@@ -42,7 +42,7 @@ const ShareButton = styled.button`
 `;
 
 function NameCard() {
-	const { id } = useLocation().state;
+	const { id } = useParams();
 	const { data } = myPageApi.useGetMyBusinessCardInfoQuery({ id });
 	console.log(data);
 	return (
